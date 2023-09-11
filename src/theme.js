@@ -1,32 +1,31 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from "@mui/material/styles";
 
 // Define your custom theme
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#0B132B',
+      main: "#0B132B",
     },
     secondary: {
-      main: '#EDEADE', 
+      main: "#EDEADE",
     },
     background: {
-      default: '#3A506B', 
+      default: "#dfe3ee",
     },
   },
   typography: {
-    fontFamily: 'Playfair Display, sans-serif', // Use a suitable font family
     h6: {
-      color: '#EDEADE', // Set text color
-      fontSize: '35px', // Adjust heading font size
-      paddingLeft: '10px',
-      paddingBottom: '5px',
+      fontFamily: "Playfair Display",
+      color: "#EDEADE", // Set text color
+      fontSize: "35px", // Adjust heading font size
+      paddingLeft: "10px",
+      paddingBottom: "5px",
     },
     button: {
-      fontFamily: 'Raleway, sans-serif', // Use a suitable font family
-      color: '#EDEADE', // Set text color
-      fontSize: '20px', // Adjust heading font size
+      fontFamily: "Raleway", // Use a suitable font family
+      color: "#EDEADE", // Set text color
+      fontSize: "20px", // Adjust heading font size
     },
-    // Add styles for other headings and text as needed
   },
 });
 
