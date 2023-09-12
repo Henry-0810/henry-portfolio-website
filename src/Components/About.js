@@ -2,11 +2,11 @@ import { Avatar, Container, Grid, Typography } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import styles from "./Home.module.css";
+import styles from "../CssStuff/About.module.css";
 
 const Home = () => {
   return (
-    <Container>
+    <Container sx={{ marginBottom: "50px" }}>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={7}>
           <div
@@ -26,25 +26,43 @@ const Home = () => {
               variant="h4"
               sx={{ marginBottom: "15%" }}
             >
-              Hello! I'm <strong>Henry</strong>, a passionate computer science
-              student with a deep love for creating innovative solutions through
-              code.
+              Hello World! I'm <strong>Henry</strong>, a passionate computer
+              science student with a deep love for creating innovative solutions
+              through code.
             </Typography>
-            <LinkedInIcon
-              sx={{
-                fontSize: 50,
-                paddingRight: "15px",
-                color: "#0072b1",
-              }}
-            />
-            <GitHubIcon
-              sx={{
-                fontSize: 48,
-                paddingRight: "15px",
-                color: "#171515",
-              }}
-            />
-            <InstagramIcon sx={{ fontSize: 48, color: "#E1306C" }} />
+            <a
+              href="https://www.linkedin.com/in/mun-li-pan-081002henry/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LinkedInIcon
+                sx={{
+                  fontSize: 50,
+                  paddingRight: "15px",
+                  color: "#0072b1",
+                }}
+              />
+            </a>
+            <a
+              href="https://github.com/Henry-0810"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GitHubIcon
+                sx={{
+                  fontSize: 48,
+                  paddingRight: "15px",
+                  color: "#171515",
+                }}
+              />
+            </a>
+            <a
+              href="https://www.instagram.com/henryy0810/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <InstagramIcon sx={{ fontSize: 48, color: "#E1306C" }} />
+            </a>
           </div>
         </Grid>
         <Grid item xs={12} sm={5}>

@@ -5,28 +5,31 @@ const Footer = () => {
   return (
     <AppBar
       position="fixed"
-      style={{ margin: "auto", top: "auto", bottom: 0, height: "60px" }}
+      style={{ margin: "auto", top: "auto", bottom: 0, height: "50px" }}
     >
       <Container>
         <Toolbar>
-          <Typography variant="body1" sx={{ color: "#EDEADE" }}>
+          <Typography
+            variant="body1"
+            sx={{ color: "#EDEADE", paddingBottom: "10px" }}
+          >
             &copy; 2023 Henry Pan
           </Typography>
           <Link
-            href="#"
-            sx={{ color: "#EDEADE", marginLeft: 2, paddingBottom: "2px" }}
+            href="/"
+            sx={{ color: "#EDEADE", marginLeft: 2, paddingBottom: "13px" }}
           >
-            Home
+            About Me
           </Link>
           <Link
-            href="#"
-            sx={{ color: "#EDEADE", marginLeft: 2, paddingBottom: "2px" }}
+            href="/Projects"
+            sx={{ color: "#EDEADE", marginLeft: 2, paddingBottom: "13px" }}
           >
-            About
+            Projects
           </Link>
           <Link
-            href="#"
-            sx={{ color: "#EDEADE", marginLeft: 2, paddingBottom: "2px" }}
+            href="/contact"
+            sx={{ color: "#EDEADE", marginLeft: 2, paddingBottom: "13px" }}
           >
             Contact
           </Link>
