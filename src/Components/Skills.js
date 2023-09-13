@@ -1,36 +1,51 @@
 import React from "react";
 import { Container, Grid, Typography } from "@mui/material";
 import styles from "../CssStuff/Skills.module.css";
-import SvgIcon from "@mui/material/SvgIcon";
 
 const Skills = () => {
   // Define an array of objects with icon names and corresponding icons
   const skillsList = [
-    { name: "HTML", icon: <SvgIcon component="Html.svg" /> },
-    { name: "CSS", icon: <SvgIcon component="Css.svg" /> },
-    { name: "Javascript", icon: <SvgIcon component="Javascript.svg" /> },
-    { name: "ExpressJs", icon: <SvgIcon component="Express-js.svg" /> },
-    { name: "Azure DevOps", icon: <SvgIcon component="Azure.svg" /> },
-    { name: "Azure DevOps", icon: <SvgIcon component="Azure.svg" /> },
-    { name: "Azure DevOps", icon: <SvgIcon component="Azure.svg" /> },
-    { name: "Azure DevOps", icon: <SvgIcon component="Azure.svg" /> },
-    { name: "Azure DevOps", icon: <SvgIcon component="Azure.svg" /> },
-    { name: "Azure DevOps", icon: <SvgIcon component="Azure.svg" /> },
-    { name: "Azure DevOps", icon: <SvgIcon component="Azure.svg" /> },
-    { name: "Azure DevOps", icon: <SvgIcon component="Azure.svg" /> },
-    { name: "Azure DevOps", icon: <SvgIcon component="Azure.svg" /> },
-    { name: "Azure DevOps", icon: <SvgIcon component="Azure.svg" /> },
-    { name: "Azure DevOps", icon: <SvgIcon component="Azure.svg" /> },
+    { name: "HTML", icon: <img src="./icons/Html.svg" alt="HTML" /> },
+    { name: "CSS", icon: <img src="./icons/Css.svg" alt="CSS" /> },
+    {
+      name: "Javascript",
+      icon: <img src="./icons/Javascript.svg" alt="Javasript" />,
+    },
+    {
+      name: "Material-UI",
+      icon: <img src="./icons/MaterialUI.svg" alt="Material-UI" />,
+    },
+    { name: "NodeJs", icon: <img src="./icons/Nodejs.svg" alt="NodeJs" /> },
+    {
+      name: "ExpressJs",
+      icon: <img src="./icons/Express.svg" alt="ExpressJs" />,
+    },
+    {
+      name: "AngularJs",
+      icon: <img src="./icons/Angular.svg" alt="AngularJs" />,
+    },
+    { name: "ReactJs", icon: <img src="./icons/React.svg" alt="ReactJs" /> },
+    { name: "Django", icon: <img src="./icons/Django.svg" alt="Django" /> },
+    { name: "Python", icon: <img src="./icons/Python.svg" alt="Python" /> },
+    {
+      name: "Azure DevOps",
+      icon: <img src="./icons/Azure.svg" alt="Azure Devops" />,
+    },
+    { name: "Git", icon: <img src="./icons/Git.svg" alt="Git" /> },
+    { name: "Java", icon: <img src="./icons/Java.svg" alt="Java" /> },
+    {
+      name: "MongoDB",
+      icon: <img src="./icons/MongoDB.svg" alt="MongoDB" />,
+    },
+    { name: "C# .NET", icon: <img src="./icons/Csharp.svg" alt=".Net" /> },
+    { name: "PHP", icon: <img src="./icons/Php.svg" alt="PHP" /> },
   ];
 
   return (
     <Container>
-      <Typography variant="h4" className={styles.title}>
-        I'm experienced with these technologies
-      </Typography>
-      <Grid container spacing={3}>
+      <Grid container spacing={2}>
         {skillsList.map((skill, index) => (
-          <Grid item xs={4} key={index}>
+          <Grid item xs={3} key={index}>
             <div className={styles.icon}>{skill.icon}</div>
             <Typography variant="subtitle1">{skill.name}</Typography>
           </Grid>
