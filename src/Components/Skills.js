@@ -42,10 +42,16 @@ const Skills = () => {
   ];
 
   return (
-    <Container>
+    <Container className={styles.container}>
       <Grid container spacing={2}>
         {skillsList.map((skill, index) => (
-          <Grid item xs={3} key={index}>
+          <Grid
+            item
+            xs={3}
+            key={index}
+            className={styles.skillsDiv}
+            sx={{ flexDirection: "column" }}
+          >
             <div className={styles.icon}>{skill.icon}</div>
             <Typography variant="subtitle1">{skill.name}</Typography>
           </Grid>
