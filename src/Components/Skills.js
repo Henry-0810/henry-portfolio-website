@@ -11,6 +11,7 @@ const Skills = () => {
       name: "Javascript",
       icon: <img src="./icons/Javascript.svg" alt="Javasript" />,
     },
+    { name: "PHP", icon: <img src="./icons/Php.svg" alt="PHP" /> },
     {
       name: "Material-UI",
       icon: <img src="./icons/MaterialUI.svg" alt="Material-UI" />,
@@ -25,20 +26,21 @@ const Skills = () => {
       icon: <img src="./icons/Angular.svg" alt="AngularJs" />,
     },
     { name: "ReactJs", icon: <img src="./icons/React.svg" alt="ReactJs" /> },
-    { name: "Django", icon: <img src="./icons/Django.svg" alt="Django" /> },
     { name: "Python", icon: <img src="./icons/Python.svg" alt="Python" /> },
+    { name: "Django", icon: <img src="./icons/Django.svg" alt="Django" /> },
+    { name: "Java", icon: <img src="./icons/Java.svg" alt="Java" /> },
+    { name: "C# .NET", icon: <img src="./icons/Csharp.svg" alt=".Net" /> },
     {
       name: "Azure DevOps",
       icon: <img src="./icons/Azure.svg" alt="Azure Devops" />,
     },
     { name: "Git", icon: <img src="./icons/Git.svg" alt="Git" /> },
-    { name: "Java", icon: <img src="./icons/Java.svg" alt="Java" /> },
+    { name: "Vim", icon: <img src="./icons/Vim.svg" alt="Vim" /> },
     {
       name: "MongoDB",
       icon: <img src="./icons/MongoDB.svg" alt="MongoDB" />,
     },
-    { name: "C# .NET", icon: <img src="./icons/Csharp.svg" alt=".Net" /> },
-    { name: "PHP", icon: <img src="./icons/Php.svg" alt="PHP" /> },
+    { name: "MySQL", icon: <img src="./icons/MySQL.svg" alt="MySQL" /> },
   ];
 
   return (
@@ -47,7 +49,7 @@ const Skills = () => {
         {skillsList.map((skill, index) => (
           <Grid
             item
-            xs={3}
+            xs={2}
             key={index}
             className={styles.skillsDiv}
             sx={{ flexDirection: "column" }}

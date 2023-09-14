@@ -26,6 +26,11 @@ const theme = createTheme({
       color: "#EDEADE", // Set text color
       fontSize: "20px", // Adjust heading font size
     },
+    body1: {
+      fontFamily: "Arial", // Use a suitable font family
+      color: "#EDEADE", // Set text color
+      fontSize: "16px", // Adjust heading font size
+    },
   },
 });
 

@@ -1,9 +1,47 @@
+/* Define default styles for content */
 .content {
     font-family: "Nunito, sans-serif";
+    margin: 50px;
+    /* Remove default margins */
 }
 
 .aboutDiv {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    margin: 50px;
+    /* Remove default margins */
+}
+
+.iconDiv {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    /* Add margin for spacing between text and icons */
+}
+
+/* Media Queries for responsive design */
+@media (min-width: 576px) {
+    .aboutDiv {
+        flex-direction: row;
+        justify-content: flex-start;
+        text-align: left;
+    }
+}
+
+@media (min-width: 768px) {
+    .content {
+        font-size: 1.5vw;
+        /* Adjust font size with vw unit for responsiveness */
+        margin-bottom: 1rem;
+        /* Add margin for spacing */
+    }
+}
+
+@media (min-width: 1024px) {
+    .content {
+        font-size: 1.8vw;
+        /* Further adjust font size with vw unit for responsiveness */
+    }
 }

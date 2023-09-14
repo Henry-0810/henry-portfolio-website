@@ -1,0 +1,51 @@
+/* Footer styles */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text {
+    flex: 2;
+    margin-bottom: 10px;
+    justify-content: flex-start;
+}
+
+.links {
+    display: flex;
+    font-family: "Raleway";
+    gap: 30px;
+    flex: 2;
+    justify-content: center;
+    /* Take 2/5 of the available space for links */
+}
+
+.link {
+    text-decoration: none;
+    color: #edeade;
+    margin-left: 2px;
+}
+
+.iconDiv {
+    flex: 2;
+    /* Take 2/5 of the available space for icons */
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+    .text {
+        font-size: 14px;
+        /* Adjust font size for smaller screens */
+    }
+
+    .link {
+        font-size: 14px;
+        /* Adjust font size for links on smaller screens */
+    }
+}
