@@ -1,3 +1,9 @@
 .content {
     font-family: "Nunito, sans-serif";
 }
+
+.aboutDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

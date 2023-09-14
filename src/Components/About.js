@@ -6,7 +6,7 @@ import styles from "../CssStuff/About.module.css";
 
 const Home = () => {
   return (
-    <Container sx={{ marginBottom: "50px" }}>
+    <Container sx={{ marginBottom: "50px" }} className={styles.aboutDiv}>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={7}>
           <div
