@@ -5,42 +5,78 @@ import styles from "../CssStuff/Skills.module.css";
 const Skills = () => {
   // Define an array of objects with icon names and corresponding icons
   const skillsList = [
-    { name: "HTML", icon: <img src="./icons/Html.svg" alt="HTML" /> },
-    { name: "CSS", icon: <img src="./icons/Css.svg" alt="CSS" /> },
+    {
+      name: "HTML",
+      icon: <img src="https://i.imgur.com/4PzraaT.png" alt="HTML" />,
+    },
+    {
+      name: "CSS",
+      icon: <img src="https://i.imgur.com/cDfIJqj.png" alt="CSS" />,
+    },
     {
       name: "Javascript",
-      icon: <img src="./icons/Javascript.svg" alt="Javasript" />,
+      icon: <img src="https://i.imgur.com/kUUCtnD.png" alt="Javasript" />,
     },
-    { name: "PHP", icon: <img src="./icons/Php.svg" alt="PHP" /> },
+    {
+      name: "PHP",
+      icon: <img src="https://i.imgur.com/YGiDzjZ.png" alt="PHP" />,
+    },
     {
       name: "Material-UI",
-      icon: <img src="./icons/MaterialUI.svg" alt="Material-UI" />,
+      icon: <img src="https://i.imgur.com/t1mBq2j.png" alt="Material-UI" />,
     },
-    { name: "NodeJs", icon: <img src="./icons/Nodejs.svg" alt="NodeJs" /> },
+    {
+      name: "NodeJs",
+      icon: <img src="https://i.imgur.com/PmDHBDg.png" alt="NodeJs" />,
+    },
     {
       name: "ExpressJs",
-      icon: <img src="./icons/Express.svg" alt="ExpressJs" />,
+      icon: <img src="https://i.imgur.com/3IX7EVe.png" alt="ExpressJs" />,
     },
     {
       name: "AngularJs",
-      icon: <img src="./icons/Angular.svg" alt="AngularJs" />,
+      icon: <img src="https://i.imgur.com/1mc1Mt4.png" alt="AngularJs" />,
     },
-    { name: "ReactJs", icon: <img src="./icons/React.svg" alt="ReactJs" /> },
-    { name: "Python", icon: <img src="./icons/Python.svg" alt="Python" /> },
-    { name: "Django", icon: <img src="./icons/Django.svg" alt="Django" /> },
-    { name: "Java", icon: <img src="./icons/Java.svg" alt="Java" /> },
-    { name: "C# .NET", icon: <img src="./icons/Csharp.svg" alt=".Net" /> },
+    {
+      name: "ReactJs",
+      icon: <img src="https://i.imgur.com/o41ScOa.png" alt="ReactJs" />,
+    },
+    {
+      name: "Python",
+      icon: <img src="https://i.imgur.com/st2MRPx.png" alt="Python" />,
+    },
+    {
+      name: "Django",
+      icon: <img src="https://i.imgur.com/e86tyGK.png" alt="Django" />,
+    },
+    {
+      name: "Java",
+      icon: <img src="https://i.imgur.com/1bVr8Kk.png" alt="Java" />,
+    },
+    {
+      name: "C# .NET",
+      icon: <img src="https://i.imgur.com/mjCMdQT.png" alt=".Net" />,
+    },
     {
       name: "Azure DevOps",
-      icon: <img src="./icons/Azure.svg" alt="Azure Devops" />,
+      icon: <img src="https://i.imgur.com/B0BEXbz.png" alt="Azure Devops" />,
     },
-    { name: "Git", icon: <img src="./icons/Git.svg" alt="Git" /> },
-    { name: "Vim", icon: <img src="./icons/Vim.svg" alt="Vim" /> },
+    {
+      name: "Git",
+      icon: <img src="https://i.imgur.com/88t77ql.png" alt="Git" />,
+    },
+    {
+      name: "Vim",
+      icon: <img src="https://i.imgur.com/D2d5eVq.png" alt="Vim" />,
+    },
     {
       name: "MongoDB",
-      icon: <img src="./icons/MongoDB.svg" alt="MongoDB" />,
+      icon: <img src="https://i.imgur.com/3hSg8HL.png" alt="MongoDB" />,
     },
-    { name: "MySQL", icon: <img src="./icons/MySQL.svg" alt="MySQL" /> },
+    {
+      name: "MySQL",
+      icon: <img src="https://i.imgur.com/2yoEqWP.png" alt="MySQL" />,
+    },
   ];
 
   return (

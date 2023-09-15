@@ -49,7 +49,7 @@ const About = () => {
         >
           <Avatar
             alt="profile picture"
-            src="avatar.jpg"
+            src="https://i.imgur.com/mETAtbH.jpg"
             sx={{
               marginLeft: "8vw",
               width: "85%",
