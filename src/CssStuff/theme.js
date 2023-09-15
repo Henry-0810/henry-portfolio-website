@@ -22,15 +22,17 @@ const theme = createTheme({
       paddingLeft: "10px",
       paddingBottom: "5px",
     },
-    button: {
-      fontFamily: "Raleway",
-      color: "#EDEADE",
-      fontSize: "20px",
-    },
     body1: {
-      fontFamily: "Arial",
-      color: "#EDEADE",
-      fontSize: "16px",
+      primary: {
+        fontFamily: "Raleway",
+        color: "#EDEADE",
+        fontSize: "20px",
+      },
+      secondary: {
+        fontFamily: "Arial",
+        color: "#EDEADE",
+        fontSize: "16px",
+      },
     },
   },
 });
