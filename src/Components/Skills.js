@@ -55,7 +55,9 @@ const Skills = () => {
             sx={{ flexDirection: "column" }}
           >
             <div className={styles.icon}>{skill.icon}</div>
-            <Typography variant="subtitle1">{skill.name}</Typography>
+            <Typography variant="subtitle1" color={"primary"}>
+              {skill.name}
+            </Typography>
           </Grid>
         ))}
       </Grid>

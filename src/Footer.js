@@ -1,95 +1,125 @@
 import React from "react";
 import {
-  AppBar,
-  Toolbar,
   Typography,
   Link,
-  Container,
   ThemeProvider,
+  AppBar,
+  Box,
+  Toolbar,
 } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import styles from "./CssStuff/Footer.module.css";
 import theme from "./CssStuff/theme";
+import CssBaseline from "@mui/material/CssBaseline";
+import styles from "./CssStuff/Footer.module.css";
 
 const Footer = () => {
   return (
     <ThemeProvider theme={theme}>
-      <AppBar position="static" className={styles.footer}>
-        <Container sx={{ padding: 0 }}>
-          <Toolbar sx={{ padding: 0 }}>
-            <Typography variant="body1" className={styles.text}>
+      <CssBaseline />
+      <AppBar position="static" color="primary" className={styles.footer}>
+        <Toolbar
+          disableGutters
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <Box paddingLeft={"1vw"}>
+            <Typography variant="body1">
               &copy; 2023 Henry Pan. All Rights Reserved.
             </Typography>
-            <div className={styles.links}>
-              <Link href="/" className={styles.link} sx={{ color: "#edeade" }}>
-                About Me
-              </Link>
-              <Link
-                href="/Skills"
-                className={styles.link}
-                sx={{ color: "#edeade" }}
-              >
-                Skills
-              </Link>
-              <Link
-                href="/Projects"
-                className={styles.link}
-                sx={{ color: "#edeade" }}
-              >
-                Projects
-              </Link>
-              <Link
-                href="/contact"
-                className={styles.link}
-                sx={{ color: "#edeade" }}
-              >
-                Contact
-              </Link>
-            </div>
-            <div className={styles.iconDiv}>
-              <a
-                href="https://www.linkedin.com/in/mun-li-pan-081002henry/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <LinkedInIcon
-                  sx={{
-                    fontSize: "3vw", // Adjust icon size with vw unit for responsiveness
-                    paddingRight: "2vw", // Adjust spacing with vw unit for responsiveness
-                    color: "#0072b1",
-                  }}
-                />
-              </a>
-              <a
-                href="https://github.com/Henry-0810"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <GitHubIcon
-                  sx={{
-                    fontSize: "3vw", // Adjust icon size with vw unit for responsiveness
-                    paddingRight: "2vw", // Adjust spacing with vw unit for responsiveness
-                    color: "#fbfaf2",
-                  }}
-                />
-              </a>
-              <a
-                href="https://www.instagram.com/henryy0810/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <InstagramIcon
-                  sx={{
-                    fontSize: "3vw", // Adjust icon size with vw unit for responsiveness
-                    color: "#d62976",
-                  }}
-                />
-              </a>
-            </div>
-          </Toolbar>
-        </Container>
+          </Box>
+          <Box>
+            <Link
+              href="/"
+              color={"secondary"}
+              sx={{
+                paddingX: "1vw",
+                textDecoration: "none",
+                ":hover": { textDecoration: "underline" },
+              }}
+            >
+              About Me
+            </Link>
+            <Link
+              href="/Skills"
+              color={"secondary"}
+              sx={{
+                paddingX: "1vw",
+                textDecoration: "none",
+                ":hover": { textDecoration: "underline" },
+              }}
+            >
+              Skills
+            </Link>
+            <Link
+              href="/Projects"
+              color={"secondary"}
+              sx={{
+                paddingX: "1vw",
+                textDecoration: "none",
+                ":hover": { textDecoration: "underline" },
+              }}
+            >
+              Projects
+            </Link>
+            <Link
+              href="/contact"
+              color={"secondary"}
+              sx={{
+                paddingX: "1vw",
+                textDecoration: "none",
+                ":hover": { textDecoration: "underline" },
+              }}
+            >
+              Contact
+            </Link>
+          </Box>
+          <Box paddingRight={"1vw"}>
+            <Link
+              href="https://www.linkedin.com/in/mun-li-pan-081002henry/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LinkedInIcon
+                sx={{
+                  fontSize: "4vw",
+                  paddingX: "1vw",
+                  color: "#0072b1",
+                }}
+              />
+            </Link>
+            <Link
+              href="https://github.com/Henry-0810"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GitHubIcon
+                sx={{
+                  fontSize: "4vw",
+                  paddingX: "1vw",
+                  color: "#fbfaf2",
+                }}
+              />
+            </Link>
+            <Link
+              href="https://www.instagram.com/henryy0810/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <InstagramIcon
+                sx={{
+                  fontSize: "4vw",
+                  paddingX: "1vw",
+                  color: "#d62976",
+                }}
+              />
+            </Link>
+          </Box>
+        </Toolbar>
       </AppBar>
     </ThemeProvider>
   );

@@ -12,24 +12,25 @@ const theme = createTheme({
     background: {
       default: "#dfe3ee",
     },
+    text: { primary: "#EDEADE", secondary: "#0B132B" },
   },
   typography: {
     h6: {
       fontFamily: "Playfair Display",
-      color: "#EDEADE", // Set text color
-      fontSize: "35px", // Adjust heading font size
+      color: "#EDEADE",
+      fontSize: "35px",
       paddingLeft: "10px",
       paddingBottom: "5px",
     },
     button: {
-      fontFamily: "Raleway", // Use a suitable font family
-      color: "#EDEADE", // Set text color
-      fontSize: "20px", // Adjust heading font size
+      fontFamily: "Raleway",
+      color: "#EDEADE",
+      fontSize: "20px",
     },
     body1: {
-      fontFamily: "Arial", // Use a suitable font family
-      color: "#EDEADE", // Set text color
-      fontSize: "16px", // Adjust heading font size
+      fontFamily: "Arial",
+      color: "#EDEADE",
+      fontSize: "16px",
     },
   },
 });
