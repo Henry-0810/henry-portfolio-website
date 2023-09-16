@@ -76,7 +76,7 @@ const Footer = () => {
             </Box>
             <Box paddingRight={"1vw"}>
               <Link
-                href="https://www.linkedin.com/in/mun-li-pan-081002henry/"
+                to="https://www.linkedin.com/in/mun-li-pan-081002henry/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -89,7 +89,7 @@ const Footer = () => {
                 />
               </Link>
               <Link
-                href="https://github.com/Henry-0810"
+                to="https://github.com/Henry-0810"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -102,7 +102,7 @@ const Footer = () => {
                 />
               </Link>
               <Link
-                href="https://www.instagram.com/henryy0810/"
+                to="https://www.instagram.com/henryy0810/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
