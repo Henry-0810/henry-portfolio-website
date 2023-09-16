@@ -34,6 +34,13 @@ const theme = createTheme({
         fontSize: "16px",
       },
     },
+    body2: {
+      secondary: {
+        fontFamily: "Arial",
+        color: "#0B132B",
+        fontSize: "16px",
+      },
+    },
   },
 });
 
