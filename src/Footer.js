@@ -1,18 +1,24 @@
 import React from "react";
-import {
-  Typography,
-  Link,
-  ThemeProvider,
-  AppBar,
-  Box,
-  Toolbar,
-} from "@mui/material";
+import { Typography, ThemeProvider, AppBar, Box, Toolbar } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import theme from "./CssStuff/theme";
 import styles from "./CssStuff/Footer.module.css";
 import CssBaseline from "@mui/material/CssBaseline";
+import { Link } from "react-router-dom";
+
+const linkStyle = {
+  color: "#fff",
+  fontSize: "16px",
+  marginLeft: "1vw",
+  marginRight: "1vw",
+  ":hover": { textDecoration: "underline" },
+};
+
+const removeUnderline = {
+  textDecoration: "none",
+};
 
 const Footer = () => {
   return (
@@ -46,50 +52,26 @@ const Footer = () => {
                 &copy; 2023 Henry Pan. All Rights Reserved.
               </Typography>
             </Box>
-            <Box>
-              <Link
-                href="/"
-                color={"secondary"}
-                sx={{
-                  paddingX: "1vw",
-                  textDecoration: "none",
-                  ":hover": { textDecoration: "underline" },
-                }}
-              >
-                About Me
+            <Box display={"flex"} justifyContent={"space-between"}>
+              <Link to="/" style={removeUnderline}>
+                <Typography variant="body1" style={linkStyle}>
+                  About Me
+                </Typography>
               </Link>
-              <Link
-                href="/Skills"
-                color={"secondary"}
-                sx={{
-                  paddingX: "1vw",
-                  textDecoration: "none",
-                  ":hover": { textDecoration: "underline" },
-                }}
-              >
-                Skills
+              <Link to="/skills" style={removeUnderline}>
+                <Typography variant="body1" style={linkStyle}>
+                  Skills
+                </Typography>
               </Link>
-              <Link
-                href="/Projects"
-                color={"secondary"}
-                sx={{
-                  paddingX: "1vw",
-                  textDecoration: "none",
-                  ":hover": { textDecoration: "underline" },
-                }}
-              >
-                Projects
+              <Link to="/projects" style={removeUnderline}>
+                <Typography variant="body1" style={linkStyle}>
+                  Projects
+                </Typography>
               </Link>
-              <Link
-                href="/contact"
-                color={"secondary"}
-                sx={{
-                  paddingX: "1vw",
-                  textDecoration: "none",
-                  ":hover": { textDecoration: "underline" },
-                }}
-              >
-                Contact
+              <Link to="/contact" style={removeUnderline}>
+                <Typography variant="body1" style={linkStyle}>
+                  Contact
+                </Typography>
               </Link>
             </Box>
             <Box paddingRight={"1vw"}>
