@@ -17,36 +17,38 @@ const removeUnderline = {
 
 const Navbar = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <AppBar position="static" className="navigation">
-        <Toolbar>
-          <AccountCircleIcon fontSize="large" />
-          <Typography variant="h6" sx={{ flexGrow: 1 }}>
-            Henry Pan Mun Li
-          </Typography>
-          <Link to="/" style={removeUnderline}>
-            <Typography variant="body1" style={linkStyle}>
-              About Me
+    <div className="navbar" style={{ position: "sticky" }}>
+      <ThemeProvider theme={theme}>
+        <AppBar position="static" className="navigation">
+          <Toolbar>
+            <AccountCircleIcon fontSize="large" />
+            <Typography variant="h6" sx={{ flexGrow: 1 }}>
+              Henry Pan Mun Li
             </Typography>
-          </Link>
-          <Link to="/skills" style={removeUnderline}>
-            <Typography variant="body1" style={linkStyle}>
-              Skills
-            </Typography>
-          </Link>
-          <Link to="/projects" style={removeUnderline}>
-            <Typography variant="body1" style={linkStyle}>
-              Projects
-            </Typography>
-          </Link>
-          <Link to="/contact" style={removeUnderline}>
-            <Typography variant="body1" style={linkStyle}>
-              Contact
-            </Typography>
-          </Link>
-        </Toolbar>
-      </AppBar>
-    </ThemeProvider>
+            <Link to="/" style={removeUnderline}>
+              <Typography variant="body1" style={linkStyle}>
+                About Me
+              </Typography>
+            </Link>
+            <Link to="/skills" style={removeUnderline}>
+              <Typography variant="body1" style={linkStyle}>
+                Skills
+              </Typography>
+            </Link>
+            <Link to="/projects" style={removeUnderline}>
+              <Typography variant="body1" style={linkStyle}>
+                Projects
+              </Typography>
+            </Link>
+            <Link to="/contact" style={removeUnderline}>
+              <Typography variant="body1" style={linkStyle}>
+                Contact
+              </Typography>
+            </Link>
+          </Toolbar>
+        </AppBar>
+      </ThemeProvider>
+    </div>
   );
 };
 

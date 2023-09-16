@@ -80,24 +80,26 @@ const Skills = () => {
   ];
 
   return (
-    <Container className={styles.container}>
-      <Grid container spacing={2}>
-        {skillsList.map((skill, index) => (
-          <Grid
-            item
-            xs={2}
-            key={index}
-            className={styles.skillsDiv}
-            sx={{ flexDirection: "column" }}
-          >
-            <div className={styles.icon}>{skill.icon}</div>
-            <Typography variant="subtitle1" color={"primary"}>
-              {skill.name}
-            </Typography>
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
+    <div className="content">
+      <Container className={styles.container}>
+        <Grid container spacing={2}>
+          {skillsList.map((skill, index) => (
+            <Grid
+              item
+              xs={2}
+              key={index}
+              className={styles.skillsDiv}
+              sx={{ flexDirection: "column" }}
+            >
+              <div className={styles.icon}>{skill.icon}</div>
+              <Typography variant="subtitle1" color={"primary"}>
+                {skill.name}
+              </Typography>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </div>
   );
 };
 

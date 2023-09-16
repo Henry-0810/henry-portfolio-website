@@ -1,7 +1,12 @@
-  @media (min-width: 576px) {
+ @media (min-width: 576px) {
       .footer {
           flex-direction: row;
-          justify-content: flex-start;
+          justify-content: center;
+          align-items: center;
           text-align: left;
       }
   }
+
+.footer {
+    width: 100%;
+}

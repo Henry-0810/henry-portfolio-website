@@ -1,4 +1,10 @@
 /* Define default styles for content */
+.about {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 .content {
     font-family: "Nunito, sans-serif";
     text-align: center;
@@ -10,7 +16,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin: 50px;
+    margin: 50px 100px;
 }
 
 .iconDiv {
@@ -20,25 +26,39 @@
 }
 
 /* Media Queries for responsive design */
-@media (min-width: 576px) {
+@media (max-width: 576px) {
     .aboutDiv {
+        margin: 20px 10px;
         flex-direction: row;
         justify-content: flex-start;
+        align-items: flex-start;
         text-align: left;
     }
 
     .content {
         font-size: 15px;
     }
+
+    .avatar {
+        margin: 10px 20px;
+        height: 200px;
+        width: 200px;
+    }
 }
 
 @media (min-width: 768px) {
+    .aboutDiv {
+        margin: 100px 50px;
+    }
     .content {
         font-size: 1.5vw;
     }
 }
 
 @media (min-width: 1024px) {
+    .aboutDiv {
+        margin: 120px 50px;
+    }
     .content {
         font-size: 1.8vw;
     }
