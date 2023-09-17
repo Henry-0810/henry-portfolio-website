@@ -10,6 +10,7 @@ import {
 import theme from "../CssStuff/theme";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
+import styles from "../CssStuff/Projects.module.css";
 
 const projectsData = [
   {
@@ -21,7 +22,7 @@ const projectsData = [
         height: 350,
       },
       {
-        src: "https://i.imgur.com/Wj9lsS2.jpg",
+        src: "https://i.imgur.com/GHkopiz.jpg",
         width: 700,
         height: 350,
       },
@@ -50,7 +51,7 @@ const projectsData = [
       {
         src: "https://i.imgur.com/n0pTWhI.jpg",
         width: 400,
-        height: 500,
+        height: 400,
       },
       {
         src: "https://i.imgur.com/vSe8MjM.jpg",
@@ -90,12 +91,14 @@ const Projects = () => {
     <div className="content">
       <ThemeProvider theme={theme}>
         <Container
+          className={styles.container}
           disableGutters
           sx={{
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            marginY: "5vh",
+            marginTop: "5vh",
+            marginBottom: "15vh",
           }}
         >
           <div style={{ display: "flex" }}>
@@ -103,8 +106,12 @@ const Projects = () => {
               variant="contained"
               onClick={handlePrev}
               disabled={currentPage === 0}
+              sx={{
+                height: "10vw",
+                borderRadius: "5%",
+              }}
             >
-              <ArrowLeftIcon />
+              <ArrowLeftIcon fontSize="large" />
             </Button>
           </div>
           <Card
@@ -118,6 +125,7 @@ const Projects = () => {
               backgroundColor: "primary.main",
               opacity: cardOpacity,
               transition: "opacity 0.3s ease-in-out",
+              borderRadius: "30px",
             }}
           >
             <div
@@ -126,17 +134,18 @@ const Projects = () => {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                margin: "5vh 5vw",
+                margin: "3vh 3vw",
               }}
             >
               <Typography
                 variant="h6"
-                className="title"
-                sx={{ color: "#edeade" }}
+                className={styles.title}
+                sx={{ color: "#edeade", fontFamily: "Raleway" }}
               >
                 {project.title}
               </Typography>
               <img
+                className={styles.image}
                 src={project.images[0].src}
                 alt={project.title}
                 width={project.images[0].width}
@@ -148,6 +157,7 @@ const Projects = () => {
                 }}
               />
               <img
+                className={styles.image}
                 src={project.images[1].src}
                 alt={project.title}
                 width={project.images[1].width}
@@ -155,6 +165,7 @@ const Projects = () => {
                 style={{ borderRadius: "15px", border: "2px solid #dfe3ee" }}
               />
               <Link
+                className={styles.link}
                 href={project.codeLink}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -174,8 +185,12 @@ const Projects = () => {
               variant="contained"
               onClick={handleNext}
               disabled={currentPage === projectsData.length - 1}
+              sx={{
+                height: "10vw",
+                borderRadius: "5%",
+              }}
             >
-              <ArrowRightIcon />
+              <ArrowRightIcon fontSize="large" />
             </Button>
           </div>
         </Container>

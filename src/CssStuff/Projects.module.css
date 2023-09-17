@@ -1,0 +1,21 @@
+@media (max-width: 1200px) {
+
+    .container {
+        margin-top: 95%;
+        margin-bottom: 95%;
+    }
+    /* Add responsiveness styles here */
+    .image {
+        width: 95%;
+        height: 95%;
+        /* Adjust the image size for smaller screens */
+    }
+
+    .title {
+        font-size: 95% !important;
+    }
+
+    .link {
+        font-size: 95% !important;
+    }
+}

@@ -125,6 +125,7 @@ const Navbar = () => {
           sx={{
             "& .MuiDrawer-paper": {
               backgroundColor: "primary.main",
+              fontFamily: "Raleway !important",
             },
           }}
         >

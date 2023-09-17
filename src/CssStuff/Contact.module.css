@@ -1,0 +1,8 @@
+.formInput {
+    font-family: "Raleway";
+    font-size: 1.2rem;
+}
+
+.formInput:focus {
+    border-color: #0b132b;
+}

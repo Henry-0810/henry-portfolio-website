@@ -86,13 +86,21 @@ const Skills = () => {
           {skillsList.map((skill, index) => (
             <Grid
               item
-              xs={2}
+              xs={6}
+              sm={4}
+              md={3}
+              lg={2}
               key={index}
               className={styles.skillsDiv}
               sx={{ flexDirection: "column" }}
             >
               <div className={styles.icon}>{skill.icon}</div>
-              <Typography variant="subtitle1" color={"primary"}>
+              <Typography
+                className={styles.skillName}
+                variant="subtitle1"
+                color={"primary"}
+                sx={{ fontFamily: "Raleway", fontWeight: "bold" }}
+              >
                 {skill.name}
               </Typography>
             </Grid>

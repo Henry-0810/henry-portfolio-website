@@ -5,14 +5,7 @@
     min-height: 100vh;
 }
 
-/* Ensure the content takes available space */
-.App>.content {
-    flex-grow: 1;
-}
-
-/* Footer styles */
-.footer {
-    flex-shrink: 0;
-    padding: 10px 20px;
-    text-align: center;
+.content {
+    flex: 1;
+    padding: 20px;
 }

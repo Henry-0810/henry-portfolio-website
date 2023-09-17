@@ -9,7 +9,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { Link } from "react-router-dom";
 
 const linkStyle = {
-  color: "#fff",
+  color: "#edeade",
   fontSize: "16px",
   marginLeft: "1vw",
   marginRight: "1vw",
@@ -27,14 +27,14 @@ const Footer = () => {
       <div className="footer">
         <AppBar
           sx={{
-            position: "sticky",
+            position: "fixed",
             bottom: 0,
             top: "auto",
             marginTop: "auto", // For older browsers
             width: "100%",
-            justifyContent: "center",
+            justifyContent: "space-between",
             alignItems: "center",
-            flexDirection: "row",
+            flexDirection: "column",
           }}
           color="primary"
           className={styles.footer}
@@ -47,29 +47,45 @@ const Footer = () => {
               justifyContent: "space-between",
             }}
           >
-            <Box paddingLeft={"1vw"}>
+            <Box paddingLeft={"1vw"} justifyContent={"flex-start"}>
               <Typography variant="body1">
                 &copy; 2023 Henry Pan. All Rights Reserved.
               </Typography>
             </Box>
             <Box display={"flex"} justifyContent={"space-between"}>
               <Link to="/" style={removeUnderline}>
-                <Typography variant="body1" style={linkStyle}>
+                <Typography
+                  variant="body1"
+                  style={linkStyle}
+                  fontFamily={"Raleway"}
+                >
                   About Me
                 </Typography>
               </Link>
               <Link to="/skills" style={removeUnderline}>
-                <Typography variant="body1" style={linkStyle}>
+                <Typography
+                  variant="body1"
+                  style={linkStyle}
+                  fontFamily={"Raleway"}
+                >
                   Skills
                 </Typography>
               </Link>
               <Link to="/projects" style={removeUnderline}>
-                <Typography variant="body1" style={linkStyle}>
+                <Typography
+                  variant="body1"
+                  style={linkStyle}
+                  fontFamily={"Raleway"}
+                >
                   Projects
                 </Typography>
               </Link>
               <Link to="/contact" style={removeUnderline}>
-                <Typography variant="body1" style={linkStyle}>
+                <Typography
+                  variant="body1"
+                  style={linkStyle}
+                  fontFamily={"Raleway"}
+                >
                   Contact
                 </Typography>
               </Link>

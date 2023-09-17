@@ -1,4 +1,4 @@
- @media (min-width: 576px) {
+ @media (max-width: 576px) {
       .footer {
           flex-direction: row;
           justify-content: center;
@@ -6,7 +6,3 @@
           text-align: left;
       }
   }
-
-.footer {
-    width: 100%;
-}
