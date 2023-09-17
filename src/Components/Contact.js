@@ -1,5 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Container, Typography, TextField, Button, Grid } from "@mui/material";
+import {
+  Container,
+  Typography,
+  TextField,
+  Button,
+  Grid,
+  ThemeProvider,
+} from "@mui/material";
+import styles from "../CssStuff/Contact.module.css";
+import theme from "../CssStuff/theme.js";
+import "../CssStuff/Custom.css";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -40,12 +50,6 @@ const Contact = () => {
     if (!validSecurityCode) {
       if (formData.securityCode === randomSecurityCode) {
         setValidSecurityCode(true);
-        setFormData({
-          name: "",
-          email: "",
-          message: "",
-          securityCode: "",
-        });
         generateRandomSecurityCode();
       } else {
         alert("Invalid security code. Please enter the correct code.");
@@ -53,88 +57,139 @@ const Contact = () => {
       }
     } else {
       console.log("Form data:", formData);
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+        securityCode: "",
+      });
+      setValidSecurityCode(false);
     }
   };
 
   return (
-    <Container>
-      <Typography variant="h4" gutterBottom color={"primary.main"}>
-        Contact Me
-      </Typography>
-      <form onSubmit={handleSubmit}>
-        <Grid container spacing={3}>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              fullWidth
-              label="Name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              fullWidth
-              label="Email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              fullWidth
-              label="Message"
-              name="message"
-              multiline
-              rows={4}
-              value={formData.message}
-              onChange={handleChange}
-              required
-            />
-          </Grid>
-          <Grid item xs={12}>
-            {validSecurityCode ? (
-              <Typography variant="h6" gutterBottom>
-                Security Code Verified!
-              </Typography>
-            ) : (
-              <>
-                <Typography variant="h6" gutterBottom>
-                  Enter Security Code: {randomSecurityCode}
-                </Typography>
-                <TextField
-                  fullWidth
-                  label="Enter Security Code"
-                  name="securityCode"
-                  value={formData.securityCode}
-                  onChange={handleChange}
-                  required
-                />
-              </>
-            )}
-          </Grid>
-          <Grid item xs={12}>
-            {validSecurityCode ? (
-              <Button
-                variant="contained"
-                color="primary"
-                type="submit"
+    <ThemeProvider theme={theme}>
+      <Container sx={{ marginY: "4vh" }}>
+        <Typography
+          variant="h4"
+          gutterBottom
+          color={"primary.main"}
+          sx={{
+            fontFamily: "Raleway",
+            fontWeight: "bold",
+            marginBottom: "3vh",
+          }}
+        >
+          Contact Me
+        </Typography>
+        <form onSubmit={handleSubmit}>
+          <Grid container spacing={3}>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                className={styles.formInput}
                 fullWidth
-              >
-                Submit
-              </Button>
-            ) : (
-              <Button variant="contained" color="primary" type="submit">
-                Verify Security Code
-              </Button>
-            )}
+                label="Name"
+                name="name"
+                value={formData.name}
+                color="primary"
+                variant="filled"
+                onChange={handleChange}
+                required
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                className={styles.formInput}
+                fullWidth
+                label="Email"
+                name="email"
+                variant="filled"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                className={styles.formInput}
+                sx={{
+                  color: "primary.main",
+                  fontWeight: "bold",
+                  fontFamily: "Raleway",
+                }}
+                fullWidth
+                label="Message"
+                name="message"
+                variant="filled"
+                multiline
+                rows={4}
+                value={formData.message}
+                onChange={handleChange}
+                required
+              />
+            </Grid>
+            <Grid item xs={12}>
+              {validSecurityCode ? (
+                <Typography
+                  variant="h6"
+                  gutterBottom
+                  sx={{
+                    fontFamily: "Raleway",
+                    fontWeight: "bold",
+                    fontSize: "1.5rem",
+                    color: "primary.main",
+                  }}
+                >
+                  Security Code Verified!
+                </Typography>
+              ) : (
+                <>
+                  <Typography
+                    variant="h6"
+                    gutterBottom
+                    sx={{
+                      fontFamily: "Raleway",
+                      fontWeight: "bold",
+                      fontSize: "1.5rem",
+                      color: "primary.main",
+                    }}
+                  >
+                    Enter Security Code: {randomSecurityCode}
+                  </Typography>
+                  <TextField
+                    className={styles.formInput}
+                    fullWidth
+                    label="Enter Security Code"
+                    name="securityCode"
+                    variant="filled"
+                    value={formData.securityCode}
+                    onChange={handleChange}
+                    required
+                    helperText="All caps, no spaces"
+                  />
+                </>
+              )}
+            </Grid>
+            <Grid item xs={12}>
+              {validSecurityCode ? (
+                <Button
+                  variant="contained"
+                  color="primary"
+                  type="submit"
+                  fullWidth
+                >
+                  Submit
+                </Button>
+              ) : (
+                <Button variant="contained" color="primary" type="submit">
+                  Verify Security Code
+                </Button>
+              )}
+            </Grid>
           </Grid>
-        </Grid>
-      </form>
-    </Container>
+        </form>
+      </Container>
+    </ThemeProvider>
   );
 };
 

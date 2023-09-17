@@ -3,7 +3,6 @@ import { Container, Grid, Typography } from "@mui/material";
 import styles from "../CssStuff/Skills.module.css";
 
 const Skills = () => {
-  // Define an array of objects with icon names and corresponding icons
   const skillsList = [
     {
       name: "HTML",

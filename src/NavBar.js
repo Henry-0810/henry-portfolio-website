@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   AppBar,
   Toolbar,
@@ -24,6 +24,24 @@ const linkStyle = {
 
 const Navbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const [isMenuAppear, setMenuAppear] = useState(false);
+
+  useEffect(() => {
+    // Function to handle window resize and set isMenuAppear accordingly
+    const handleResize = () => {
+      const isSmallerThanMd = window.innerWidth < theme.breakpoints.values.md;
+      setMenuAppear(isSmallerThanMd);
+    };
+
+    // Call the function initially and add event listener
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup the event listener on unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
@@ -90,33 +108,35 @@ const Navbar = () => {
             <Typography variant="h6" sx={{ flexGrow: 1 }}>
               Henry Pan Mun Li
             </Typography>
-            <div
-              className="menu-links"
-              style={{ display: { xs: "none", md: "block" } }}
+            {!isMenuAppear && (
+              <div
+                className="menu-links"
+                style={{ display: { xs: "none", md: "block" } }}
+              >
+                <Link to="/" style={linkStyle}>
+                  About Me
+                </Link>
+                <Link to="/skills" style={linkStyle}>
+                  Skills
+                </Link>
+                <Link to="/projects" style={linkStyle}>
+                  Projects
+                </Link>
+                <Link to="/contact" style={linkStyle}>
+                  Contact
+                </Link>
+              </div>
+            )}
+            <IconButton
+              edge="end"
+              color="inherit"
+              aria-label="menu"
+              onClick={toggleMenu}
+              sx={{ display: { xs: "block", md: "none" } }}
             >
-              <Link to="/" style={linkStyle}>
-                About Me
-              </Link>
-              <Link to="/skills" style={linkStyle}>
-                Skills
-              </Link>
-              <Link to="/projects" style={linkStyle}>
-                Projects
-              </Link>
-              <Link to="/contact" style={linkStyle}>
-                Contact
-              </Link>
-            </div>
+              <MenuIcon />
+            </IconButton>
           </Toolbar>
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            onClick={toggleMenu}
-            sx={{ display: { md: "none" } }}
-          >
-            <MenuIcon />
-          </IconButton>
         </AppBar>
         <Drawer
           anchor="right"
