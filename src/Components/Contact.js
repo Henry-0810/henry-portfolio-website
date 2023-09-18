@@ -10,6 +10,7 @@ import {
 import styles from "../CssStuff/Contact.module.css";
 import theme from "../CssStuff/theme.js";
 import "../CssStuff/Custom.css";
+import axios from "axios";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -44,7 +45,7 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!validSecurityCode) {
@@ -56,7 +57,13 @@ const Contact = () => {
         generateRandomSecurityCode();
       }
     } else {
-      console.log("Form data:", formData);
+      try {
+        const response = await axios.post("/send-email", formData);
+
+        console.log(response);
+      } catch (error) {
+        console.error("Error sending mail " + error);
+      }
       setFormData({
         name: "",
         email: "",
