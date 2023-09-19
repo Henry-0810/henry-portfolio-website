@@ -1,5 +1,8 @@
 import { Avatar, Container, Grid, Typography, Box } from "@mui/material";
 import styles from "../CssStuff/About.module.css";
+import EmailIcon from "@mui/icons-material/Email";
+import PhoneIcon from "@mui/icons-material/Phone";
+import { Email } from "@mui/icons-material";
 
 const About = () => {
   return (
@@ -34,6 +37,9 @@ const About = () => {
                 Hello World! I'm <strong>Henry</strong>, a passionate computer
                 science student with a deep love for creating innovative
                 solutions through code.
+              </Typography>
+              <Typography variant="body1" color="textSecondary">
+                <EmailIcon color="0b132b" />
               </Typography>
             </Box>
           </Grid>

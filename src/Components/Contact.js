@@ -10,7 +10,7 @@ import {
 import styles from "../CssStuff/Contact.module.css";
 import theme from "../CssStuff/theme.js";
 import "../CssStuff/Custom.css";
-import axios from "axios";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -45,7 +45,13 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
+    let contactInfo = {
+      user_name: formData.name,
+      user_email: formData.email,
+      message: formData.message,
+    };
+
     e.preventDefault();
 
     if (!validSecurityCode) {
@@ -57,16 +63,24 @@ const Contact = () => {
         generateRandomSecurityCode();
       }
     } else {
-      try {
-        const response = await axios.post(
-          "http://localhost:8888/send-email",
-          formData
+      emailjs
+        .send(
+          "service_wd6z371",
+          "template_xjg60l3",
+          contactInfo,
+          "vsQMnVvW_zkEYfzjd"
+        )
+        .then(
+          (result) => {
+            console.log(result.text);
+            console.log("Email sent successfully!");
+          },
+          (error) => {
+            console.log(error.text);
+            console.log("Email failed to send.");
+          }
         );
 
-        console.log(response);
-      } catch (error) {
-        console.error("Error sending mail " + error);
-      }
       setFormData({
         name: "",
         email: "",
@@ -122,11 +136,6 @@ const Contact = () => {
             <Grid item xs={12}>
               <TextField
                 className={styles.formInput}
-                sx={{
-                  color: "primary.main",
-                  fontWeight: "bold",
-                  fontFamily: "Raleway",
-                }}
                 fullWidth
                 label="Message"
                 name="message"
