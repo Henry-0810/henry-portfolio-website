@@ -1,6 +1,1 @@
 /* Override the text color for TextField components */
-.css-ronbq8-MuiInputBase-root-MuiFilledInput-root,
-.css-1hxkvkf-MuiInputBase-root-MuiFilledInput-root {
-    color: #0B132B !important;
-    /* Use !important to ensure it takes precedence */
-}

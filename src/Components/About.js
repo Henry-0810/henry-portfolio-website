@@ -2,7 +2,6 @@ import { Avatar, Container, Grid, Typography, Box } from "@mui/material";
 import styles from "../CssStuff/About.module.css";
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
-import { Email } from "@mui/icons-material";
 
 const About = () => {
   return (
@@ -38,8 +37,20 @@ const About = () => {
                 science student with a deep love for creating innovative
                 solutions through code.
               </Typography>
-              <Typography variant="body1" color="textSecondary">
-                <EmailIcon color="0b132b" />
+              <Typography
+                variant="h5"
+                color="textSecondary"
+                sx={{ display: "flex", alignItems: "center" }}
+              >
+                <PhoneIcon color="0b132b" fontSize="large" />: +353 85 731 7597
+              </Typography>
+              <Typography
+                variant="h5"
+                color="textSecondary"
+                sx={{ display: "flex", alignItems: "center" }}
+              >
+                <EmailIcon color="0b132b" fontSize="large" />:
+                ml2002study@gmail.com
               </Typography>
             </Box>
           </Grid>
