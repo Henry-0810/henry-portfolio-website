@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
+import App from "./App.js";
+import reportWebVitals from "./reportWebVitals.js";
 import { ThemeProvider } from "@emotion/react";
-import theme from "./CssStuff/theme";
+import theme from "./CssStuff/theme.js";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

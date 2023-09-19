@@ -58,7 +58,10 @@ const Contact = () => {
       }
     } else {
       try {
-        const response = await axios.post("/send-email", formData);
+        const response = await axios.post(
+          "http://localhost:8888/send-email",
+          formData
+        );
 
         console.log(response);
       } catch (error) {

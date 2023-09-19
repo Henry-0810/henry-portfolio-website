@@ -1,14 +1,13 @@
-// server.js
-import express from "express";
-import { createTransport } from "nodemailer";
-import { json, urlencoded } from "body-parser";
-import cors from "cors";
+const express = require("express");
+const nodemailer = require("nodemailer");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 
 const app = express();
 const port = 8888; // You can choose a different port
 
-app.use(json());
-app.use(urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 app.post("/send-email", async (req, res) => {
@@ -16,11 +15,11 @@ app.post("/send-email", async (req, res) => {
     const { name, email, message } = req.body;
 
     // Create a Nodemailer transporter with your email service credentials
-    const transporter = createTransport({
+    const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
         user: "munli2002@gmail.com",
-        pass: "henry2002",
+        pass: "Henry2002$",
       },
     });
 
@@ -38,7 +37,7 @@ app.post("/send-email", async (req, res) => {
     // Respond with a success message
     res.json({ message: "Email sent successfully!" });
   } catch (error) {
-    console.error("Error sending email: " + error);
+    console.error("Error sending email:", error);
 
     // Respond with an error message
     res.status(500).json({ error: "Email sending failed." });

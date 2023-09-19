@@ -7,7 +7,7 @@ import {
   Link,
   Button,
 } from "@mui/material";
-import theme from "../CssStuff/theme";
+import theme from "../CssStuff/theme.js";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import styles from "../CssStuff/Projects.module.css";

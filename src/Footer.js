@@ -3,7 +3,7 @@ import { Typography, ThemeProvider, AppBar, Box, Toolbar } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import theme from "./CssStuff/theme";
+import theme from "./CssStuff/theme.js";
 import styles from "./CssStuff/Footer.module.css";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Link } from "react-router-dom";

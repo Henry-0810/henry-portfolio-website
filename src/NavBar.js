@@ -11,7 +11,7 @@ import {
   ListItemButton,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import theme from "./CssStuff/theme";
+import theme from "./CssStuff/theme.js";
 import { Link } from "react-router-dom";
 
 const linkStyle = {
