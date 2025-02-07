@@ -9,6 +9,7 @@ import {
   List,
   ListItemText,
   ListItemButton,
+  useMediaQuery,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import theme from "./CssStuff/theme.js";
@@ -17,27 +18,38 @@ import { Link } from "react-router-dom";
 const linkStyle = {
   fontFamily: "Raleway",
   color: "#EDEADE",
-  fontSize: "20px",
-  marginRight: "20px",
+  fontSize: "18px",
+  marginRight: "30px",
   textDecoration: "none",
+  transition: "all 0.3s ease-in-out", // Smooth hover effect
+};
+
+const navbarStyles = {
+  position: "sticky",
+  top: 0,
+  zIndex: 1000,
+  backgroundColor: "#1A1A1A",
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  padding: "0 10px", // Added padding to avoid unnecessary space around the navbar
 };
 
 const Navbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [isMenuAppear, setMenuAppear] = useState(false);
 
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
   useEffect(() => {
-    // Function to handle window resize and set isMenuAppear accordingly
     const handleResize = () => {
       const isSmallerThanMd = window.innerWidth < theme.breakpoints.values.md;
       setMenuAppear(isSmallerThanMd);
     };
 
-    // Call the function initially and add event listener
-    handleResize();
+    handleResize(); // Call the function initially
     window.addEventListener("resize", handleResize);
 
-    // Cleanup the event listener on unmount
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -59,7 +71,8 @@ const Navbar = () => {
             primary="About Me"
             sx={{
               color: "#EDEADE",
-              fontFamily: "Raleway  ",
+              fontFamily: "Raleway",
+              fontSize: "18px",
             }}
           />
         </ListItemButton>
@@ -71,6 +84,7 @@ const Navbar = () => {
             sx={{
               color: "#EDEADE",
               fontFamily: "Raleway",
+              fontSize: "18px",
             }}
           />
         </ListItemButton>
@@ -82,6 +96,7 @@ const Navbar = () => {
             sx={{
               color: "#EDEADE",
               fontFamily: "Raleway",
+              fontSize: "18px",
             }}
           />
         </ListItemButton>
@@ -93,6 +108,7 @@ const Navbar = () => {
             sx={{
               color: "#EDEADE",
               fontFamily: "Raleway",
+              fontSize: "18px",
             }}
           />
         </ListItemButton>
@@ -101,17 +117,17 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar" style={{ position: "sticky" }}>
+    <div style={navbarStyles}>
       <ThemeProvider theme={theme}>
-        <AppBar position="static" className="navigation">
+        <AppBar position="sticky">
           <Toolbar>
             <Typography variant="h6" sx={{ flexGrow: 1 }}>
               Henry Pan Mun Li
             </Typography>
-            {!isMenuAppear && (
+            {!isMobile && (
               <div
                 className="menu-links"
-                style={{ display: { xs: "none", md: "block" } }}
+                style={{ display: "flex", alignItems: "center" }}
               >
                 <Link to="/" style={linkStyle}>
                   About Me
@@ -127,25 +143,33 @@ const Navbar = () => {
                 </Link>
               </div>
             )}
+            {/* Mobile Menu Icon */}
             <IconButton
               edge="end"
               color="inherit"
               aria-label="menu"
               onClick={toggleMenu}
-              sx={{ display: { xs: "block", md: "none" } }}
+              sx={{
+                display: { xs: "block", md: "none" },
+                color: "#EDEADE", // White icon for mobile menu
+              }}
             >
               <MenuIcon />
             </IconButton>
           </Toolbar>
         </AppBar>
+        {/* Drawer for Mobile */}
         <Drawer
           anchor="right"
           open={isMenuOpen}
           onClose={closeMenu}
           sx={{
             "& .MuiDrawer-paper": {
-              backgroundColor: "primary.main",
-              fontFamily: "Raleway !important",
+              backgroundColor: "#333", // Dark background for mobile menu
+              color: "#EDEADE",
+              fontFamily: "Raleway",
+              paddingTop: "20px",
+              width: "250px", // Fixed width for the drawer
             },
           }}
         >

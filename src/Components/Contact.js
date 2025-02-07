@@ -7,9 +7,7 @@ import {
   Grid,
   ThemeProvider,
 } from "@mui/material";
-import styles from "../CssStuff/Contact.module.css";
 import theme from "../CssStuff/theme.js";
-import "../CssStuff/Custom.css";
 import emailjs from "@emailjs/browser";
 import validator from "validator";
 
@@ -139,15 +137,24 @@ const Contact = () => {
         </Typography>
       )}
       {!loading && (
-        <Container sx={{ marginY: "4vh" }}>
+        <Container
+          sx={{
+            marginY: "4vh",
+            backgroundColor: "rgba(0, 0, 0, 0.6)",
+            borderRadius: "10px",
+            padding: "3vh",
+          }}
+        >
           <Typography
             variant="h4"
             gutterBottom
-            color={"primary.main"}
+            color="textPrimary"
             sx={{
               fontFamily: "Raleway",
               fontWeight: "bold",
               marginBottom: "3vh",
+              textAlign: "center",
+              fontSize: "2rem",
             }}
           >
             Contact Me
@@ -156,7 +163,6 @@ const Contact = () => {
             <Grid container spacing={3}>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  className={styles.formInput}
                   fullWidth
                   label="Name"
                   name="name"
@@ -165,12 +171,23 @@ const Contact = () => {
                   variant="filled"
                   onChange={handleChange}
                   required
-                  InputProps={{ style: { color: "#0b132b" } }}
+                  InputProps={{
+                    style: {
+                      color: "#EDEADE",
+                      borderRadius: "8px",
+                      boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                    },
+                  }}
+                  sx={{
+                    backgroundColor: "#2d2d2d",
+                    "& .MuiFilledInput-root": {
+                      borderRadius: "8px",
+                    },
+                  }}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  className={styles.formInput}
                   fullWidth
                   label="Email"
                   name="email"
@@ -178,14 +195,25 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  InputProps={{ style: { color: "#0b132b" } }}
+                  InputProps={{
+                    style: {
+                      color: "#EDEADE",
+                      borderRadius: "8px",
+                      boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                    },
+                  }}
+                  sx={{
+                    backgroundColor: "#2d2d2d",
+                    "& .MuiFilledInput-root": {
+                      borderRadius: "8px",
+                    },
+                  }}
                   error={validEmail !== ""}
                   helperText={validEmail}
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextField
-                  className={styles.formInput}
                   fullWidth
                   label="Message"
                   name="message"
@@ -195,7 +223,19 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  InputProps={{ style: { color: "#0b132b" } }}
+                  InputProps={{
+                    style: {
+                      color: "#EDEADE",
+                      borderRadius: "8px",
+                      boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                    },
+                  }}
+                  sx={{
+                    backgroundColor: "#2d2d2d",
+                    "& .MuiFilledInput-root": {
+                      borderRadius: "8px",
+                    },
+                  }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -207,13 +247,12 @@ const Contact = () => {
                       sx={{
                         fontFamily: "Arial",
                         fontSize: "1.5rem",
-                        color: "primary.main",
+                        color: "primary",
                       }}
                     >
                       Enter Security Code: {randomSecurityCode}
                     </Typography>
                     <TextField
-                      className={styles.formInput}
                       fullWidth
                       label="Enter Security Code"
                       name="securityCode"
@@ -222,12 +261,34 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       helperText="All caps, no spaces"
-                      InputProps={{ style: { color: "#0b132b" } }}
+                      InputProps={{
+                        style: {
+                          color: "#EDEADE",
+                          borderRadius: "8px",
+                          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                        },
+                      }}
+                      sx={{
+                        backgroundColor: "#2d2d2d",
+                        "& .MuiFilledInput-root": {
+                          borderRadius: "8px",
+                        },
+                      }}
                     />
                     <Button
                       variant="contained"
                       color="primary"
                       onClick={handleVerify}
+                      sx={{
+                        marginTop: "1.5vh",
+                        borderRadius: "8px",
+                        fontWeight: "bold",
+                        transition: "all 0.3s ease",
+                        "&:hover": {
+                          backgroundColor: "#ffffff",
+                          color: "#000000",
+                        },
+                      }}
                     >
                       Verify Security Code
                     </Button>
@@ -238,6 +299,15 @@ const Contact = () => {
                     color="primary"
                     type="submit"
                     fullWidth
+                    sx={{
+                      borderRadius: "8px",
+                      fontWeight: "bold",
+                      transition: "all 0.3s ease",
+                      "&:hover": {
+                        backgroundColor: "#ffffff",
+                        color: "#000000",
+                      },
+                    }}
                   >
                     Submit
                   </Button>

@@ -1,0 +1,27 @@
+/* Apply a global reset to remove default spacing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    /* Ensure padding and border do not affect width and height */
+    margin: 0;
+    /* Remove all margins */
+    padding: 0;
+    /* Remove all padding */
+}
+
+/* Ensure that the body takes up full height */
+body {
+    min-height: 100vh;
+    /* Make body take full height of the viewport */
+    display: block;
+    /* Ensure the body is displayed correctly */
+    margin: 0;
+    /* Remove margin */
+}
+
+/* For any other common elements, you can also explicitly reset or set styles */
+html {
+    scroll-behavior: smooth;
+    /* Optional: Smooth scrolling behavior */
+}
