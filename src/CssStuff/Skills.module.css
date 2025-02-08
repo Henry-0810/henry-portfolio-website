@@ -12,7 +12,7 @@
 /* Style individual skill boxes */
 .skillsDiv {
     display: flex;
-    flex-direction: column;
+    flex-direction: column!important;
     align-items: center;
     text-align: center;
     transition: transform 0.2s ease-in-out;
