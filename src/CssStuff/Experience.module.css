@@ -1,63 +1,146 @@
 .container {
-    max-width: 800px;
+    max-width: 900px;
     margin: auto;
     padding: 20px;
-    font-family: 'Arial', sans-serif;
-    color: #333;
-    line-height: 1.6;
-}
-
-.title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-.section {
-    margin-bottom: 40px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #ddd;
+    background-color: #121212;
+    color: #e0e0e0;
 }
 
 .heading {
-    font-size: 1.5rem;
+    font-size: 24px;
+    font-weight: bold;
     margin-bottom: 10px;
+    color: #ffffff;
 }
 
 .company {
-    font-style: italic;
-    color: #555;
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #bdbdbd;
 }
 
-.image {
-    width: 100%;
-    max-height: 300px;
-    object-fit: cover;
+.card {
+    background-color: #1e1e1e !important;
+    margin-bottom: 20px;
+    padding: 20px;
     border-radius: 10px;
-    margin-top: 10px;
 }
 
-.subheading {
-    font-size: 1.2rem;
-    margin-top: 20px;
+.sectionTitle {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffffff;
 }
 
 .list {
-    padding-left: 20px;
+    list-style: none;
+    padding-left: 0;
 }
 
 .list li {
     margin-bottom: 10px;
+    font-size: 16px;
 }
 
-.link {
-    display: inline-block;
+.list strong {
+    color: #ffcc00;
+}
+
+.skillsLearned {
+    font-size: 16px;
+    color: #e0e0e0;
     margin-top: 10px;
-    color: #0073e6;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.divider {
+    background-color: #424242;
+    margin: 20px 0;
+}
+
+.description {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.image {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+.projectLink a {
+    color: #ffcc00;
     text-decoration: none;
     font-weight: bold;
 }
 
-.link:hover {
+.projectLink a:hover {
     text-decoration: underline;
+}
+
+.techStack {
+    font-size: 16px;
+    margin-top: 10px;
+    color: #bdbdbd;
+}
+
+.carousel {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    /* Maintain aspect ratio */
+    max-height: 450px;
+    /* Slightly increase max height */
+    object-fit: cover;
+    /* Ensure better fit */
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: #ffcc00 !important;
+    /* Make arrows more visible */
+    font-size: 20px !important;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    color: #ffa500 !important;
+    /* Slightly different hover color */
+}
+
+/* Lightbox (Pop-up Image) */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lightboxImage {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    cursor: pointer;
 }

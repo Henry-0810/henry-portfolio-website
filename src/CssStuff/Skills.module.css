@@ -1,97 +1,107 @@
-/* Define default styles for icons and text */
-
+/* Center container and ensure proper spacing */
 .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin: auto;
+    padding-top: 5vh;
+    padding-bottom: 10vh;
 }
 
+/* Style individual skill boxes */
 .skillsDiv {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Hover effect for better UX */
+.skillsDiv:hover {
+    transform: scale(1.1);
+}
+
+/* Icon styling */
+.iconContainer {
+    width: 100px;
+    height: 100px;
+    display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1rem;
-    /* Base font size */
+    background-color: rgba(255, 255, 255, 0.649);
+    border-radius: 10px;
+    padding: 10px;
+    transition: background-color 0.3s ease;
 }
 
-.icon img {
-    width: 60px;
-    /* Base icon size */
-    height: 60px;
+.iconContainer:hover {
+    background-color: rgba(255, 255, 255, 0.921);
 }
 
+/* Adjust icon size */
+.icon {
+    
+    max-width: 60px;
+    height: auto;
+}
+
+/* Ensure text is visible based on theme */
+.skillName {
+    font-weight: 500;
+    font-size: 0.8rem;
+    color: #EDEADE;
+    margin-top: 10px;
+}
+
+/* Responsive adjustments */
 @media (max-width: 575px) {
-    .container {
-        margin-bottom: 16%;
-    }
     .skillsDiv {
-        flex-direction: row;
+        flex-direction: column;
+        /* Ensure column layout on mobile */
         justify-content: center;
-        text-align: center;
+        align-items: center;
+    }
+
+    .icon {
+        max-width: 50px;
+        /* Adjust icon size on mobile */
+    }
+
+    .skillName {
+        font-size: 0.9rem;
+        /* Adjust text size on mobile */
+        margin-top: 8px;
     }
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
-    .container {
-        margin-bottom: 13%;
-    }
-    /* For screens wider than XS (576px) */
-    .skillName {
-        font-size: calc(0.5rem + 0.2vw);
+    .icon {
+        max-width: 70px;
     }
 
-    .icon img {
-        width: calc(60px + 1vw);
-        height: calc(60px + 1vw);
+    .skillName {
+        font-size: 1rem;
     }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-
-    .container {
-            margin-bottom: 10%;
-        }
-    /* For screens wider than SM (768px) */
-    .skillName {
-        font-size: calc(0.8rem + 0.4vw);
+    .icon {
+        max-width: 80px;
     }
 
-    .icon img {
-        width: calc(60px + 2vw);
-        height: calc(60px + 2vw);
+    .skillName {
+        font-size: 1.1rem;
     }
 }
 
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (min-width: 992px) {
+    .icon {
+        max-width: 90px;
+    }
 
-    .container {
-            margin-bottom: 7%;
-        }
-    /* For screens wider than MD (992px) */
     .skillName {
-        font-size: calc(1.0rem + 0.4vw);
-    }
-
-    .icon img {
-        width: calc(80px + 2vw);
-        height: calc(80px + 2vw);
-    }
-}
-
-@media (min-width: 1200px) {
-    .container {
-        padding-bottom: 15vh;
-        padding-top: 5vh;
-    }
-    /* For screens wider than LG (1200px) */
-    .skillName {
-        font-size: calc(1.2rem + 0.4vw);
-    }
-
-    .icon img {
-        width: calc(100px + 2vw);
-        height: calc(100px + 2vw);
+        font-size: 1.2rem;
     }
 }

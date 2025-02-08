@@ -143,11 +143,11 @@ const Navbar = () => {
                 <Link to={"/experience"} style={linkStyle}>
                   Experience
                 </Link>
-                <Link to="/skills" style={linkStyle}>
-                  Skills
-                </Link>
                 <Link to="/projects" style={linkStyle}>
                   Projects
+                </Link>
+                <Link to="/skills" style={linkStyle}>
+                  Skills
                 </Link>
                 <Link to="/contact" style={linkStyle}>
                   Contact

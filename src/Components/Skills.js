@@ -4,84 +4,30 @@ import styles from "../CssStuff/Skills.module.css";
 
 const Skills = () => {
   const skillsList = [
-    {
-      name: "Python",
-      icon: <img src="https://i.imgur.com/4PzraaT.png" alt="Python" />,
-    },
-    {
-      name: "CSS",
-      icon: <img src="https://i.imgur.com/cDfIJqj.png" alt="CSS" />,
-    },
-    {
-      name: "Javascript",
-      icon: <img src="https://i.imgur.com/kUUCtnD.png" alt="Javasript" />,
-    },
-    {
-      name: "PHP",
-      icon: <img src="https://i.imgur.com/YGiDzjZ.png" alt="PHP" />,
-    },
-    {
-      name: "Material-UI",
-      icon: <img src="https://i.imgur.com/t1mBq2j.png" alt="Material-UI" />,
-    },
-    {
-      name: "NodeJs",
-      icon: <img src="https://i.imgur.com/PmDHBDg.png" alt="NodeJs" />,
-    },
-    {
-      name: "ExpressJs",
-      icon: <img src="https://i.imgur.com/3IX7EVe.png" alt="ExpressJs" />,
-    },
-    {
-      name: "AngularJs",
-      icon: <img src="https://i.imgur.com/1mc1Mt4.png" alt="AngularJs" />,
-    },
-    {
-      name: "ReactJs",
-      icon: <img src="https://i.imgur.com/o41ScOa.png" alt="ReactJs" />,
-    },
-    {
-      name: "Python",
-      icon: <img src="https://i.imgur.com/st2MRPx.png" alt="Python" />,
-    },
-    {
-      name: "Django",
-      icon: <img src="https://i.imgur.com/e86tyGK.png" alt="Django" />,
-    },
-    {
-      name: "Java",
-      icon: <img src="https://i.imgur.com/1bVr8Kk.png" alt="Java" />,
-    },
-    {
-      name: "C# .NET",
-      icon: <img src="https://i.imgur.com/mjCMdQT.png" alt=".Net" />,
-    },
-    {
-      name: "Azure DevOps",
-      icon: <img src="https://i.imgur.com/B0BEXbz.png" alt="Azure Devops" />,
-    },
-    {
-      name: "Git",
-      icon: <img src="https://i.imgur.com/88t77ql.png" alt="Git" />,
-    },
-    {
-      name: "Vim",
-      icon: <img src="https://i.imgur.com/D2d5eVq.png" alt="Vim" />,
-    },
-    {
-      name: "MongoDB",
-      icon: <img src="https://i.imgur.com/3hSg8HL.png" alt="MongoDB" />,
-    },
-    {
-      name: "MySQL",
-      icon: <img src="https://i.imgur.com/2yoEqWP.png" alt="MySQL" />,
-    },
+    { name: "Java", icon: "https://imgur.com/BJlwi3P.png" },
+    { name: "Python", icon: "https://imgur.com/st2MRPx.png" },
+    { name: "JavaScript", icon: "https://i.imgur.com/kUUCtnD.png" },
+    { name: "C#", icon: "https://i.imgur.com/mjCMdQT.png" },
+    { name: "React.js", icon: "https://i.imgur.com/o41ScOa.png" },
+    { name: "Node.js", icon: "https://i.imgur.com/PmDHBDg.png" },
+    { name: "Spring Boot", icon: "https://imgur.com/IrfvDvY.png" },
+    { name: "Flask", icon: "https://imgur.com/vqvvH5m.png" },
+    { name: "PostgreSQL", icon: "https://imgur.com/LSbAsLF.png" },
+    { name: "MongoDB", icon: "https://i.imgur.com/3hSg8HL.png" },
+    { name: "Apache Kafka", icon: "https://imgur.com/d9gr4qp.png" },
+    { name: "Amazon Web Services", icon: "https://imgur.com/sSyTa8Q.png" },
+    { name: "Jenkins", icon: "https://imgur.com/cvTLyvr.png" },
+    { name: "Data Analysis", icon: "https://imgur.com/3i5d5wr.png" },
+    { name: "Git", icon: "https://i.imgur.com/88t77ql.png" },
+    { name: "Linux", icon: "https://imgur.com/16k5oUJ.png" },
+    { name: "Docker", icon: "https://imgur.com/y8JB8DV.png" },
+    { name: "Kubernetes", icon: "https://imgur.com/ATcGVBP.png" },
   ];
 
   return (
     <div className="content">
       <Container className={styles.container}>
-        <Grid container spacing={2}>
+        <Grid container spacing={3}>
           {skillsList.map((skill, index) => (
             <Grid
               item
@@ -91,15 +37,15 @@ const Skills = () => {
               lg={2}
               key={index}
               className={styles.skillsDiv}
-              sx={{ flexDirection: "column" }}
             >
-              <div className={styles.icon}>{skill.icon}</div>
-              <Typography
-                className={styles.skillName}
-                variant="subtitle1"
-                color={"primary"}
-                sx={{ fontFamily: "Raleway", fontWeight: "bold" }}
-              >
+              <div className={styles.iconContainer}>
+                <img
+                  src={skill.icon}
+                  alt={skill.name}
+                  className={styles.icon}
+                />
+              </div>
+              <Typography variant="subtitle1" className={styles.skillName}>
                 {skill.name}
               </Typography>
             </Grid>

@@ -1,79 +1,132 @@
+import React, { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import styles from "../CssStuff/Experience.module.css";
 
+const images = [
+  "https://i.imgur.com/Zv3XNSF.jpg",
+  "https://i.imgur.com/oWvrbsA.jpg",
+  "https://i.imgur.com/Mq9hDJA.jpg",
+];
+
 const Experience = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Internship Experience</h1>
+      <h2 className={styles.heading}>Software Engineer Intern</h2>
+      <p className={styles.company}>
+        JRI-America (A Division of Sumitomo Mitsui Banking Corporation), Kerry,
+        Ireland <br />
+        <strong>January 2024 – August 2024</strong>
+      </p>
 
-      <section className={styles.section}>
-        <h2 className={styles.heading}>Software Engineer Intern</h2>
-        <p className={styles.company}>
-          January 2024 – August 2024 | JRI-America, Kerry, Ireland
+      <div className={styles.card}>
+        <h3 className={styles.sectionTitle}>Department Work</h3>
+        <ul className={styles.list}>
+          <li>
+            ➡️ Developed <strong>8</strong> file transfer projects using IBM
+            WebSphere MQ, Ant Script, and Unix, successfully deploying{" "}
+            <strong>100%</strong> of them into production by the end of my
+            internship.
+          </li>
+          <li>
+            ➡️ Applied Agile methodologies (<strong>Kanban</strong>) and
+            collaborated with cross-functional teams to ensure on-time project
+            delivery.
+          </li>
+          <li>
+            ➡️ Resolved <strong>2 critical production issues</strong> within{" "}
+            <strong>48 hours</strong>.
+          </li>
+          <li>
+            ➡️ Conducted <strong>code reviews</strong> and unit testing for
+            maintainability.
+          </li>
+        </ul>
+        <p className={styles.skillsLearned}>
+          <strong>Skills Learned:</strong> Bash, Linux, Java, IBM MQ, IBM
+          Websphere MQ, Ant Script, ServiceNow, Perforce/GitHub, UrbanCode
+          Deploy, Regex, Collaboration, Communication
         </p>
-        <img
-          className={styles.image}
-          src="/images/department-work.jpg"
-          alt="Department Work"
-        />
+        <p className={styles.projectLink}>
+          <a
+            href="https://www.linkedin.com/posts/henry-pan-mun-li_softwaredevelopment-internship-teamwork-activity-7239356620617527297-tyF4?utm_source=share&utm_medium=member_desktop"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            👆 LinkedIn Post
+          </a>
+        </p>
+      </div>
 
-        <h3 className={styles.subheading}>Department Work</h3>
-        <ul className={styles.list}>
-          <li>
-            Led 8 file transfer projects using IBM WebSphere MQ, Ant Script, and
-            Unix, ensuring seamless financial data transactions.
-          </li>
-          <li>
-            Applied Agile methodologies (Kanban) to meet SDLC objectives,
-            delivering projects on time and aligned with client needs.
-          </li>
-          <li>
-            Resolved 2 critical production issues in under 48 hours, ensuring
-            system uptime and service continuity.
-          </li>
-          <li>
-            Conducted code reviews and unit testing (JUnit) to ensure
-            high-quality, maintainable code.
-          </li>
-        </ul>
-      </section>
+      <hr className={styles.divider} />
 
-      <section className={styles.section}>
-        <h2 className={styles.heading}>Intern Project: Connecting-Kerry</h2>
-        <p className={styles.company}>May 2024 – August 2024</p>
-        <img
-          className={styles.image}
-          src="/images/intern-project.jpg"
-          alt="Intern Project"
-        />
-
-        <h3 className={styles.subheading}>Building a Volunteer Platform</h3>
-        <ul className={styles.list}>
-          <li>
-            Led a team of 5 in building a volunteer management platform using
-            React, Node.js, and PostgreSQL.
-          </li>
-          <li>
-            Increased community engagement by 30% by streamlining the volunteer
-            matching process.
-          </li>
-          <li>
-            Implemented CI/CD pipelines and secure Firebase authentication,
-            reducing development time by 30%.
-          </li>
-          <li>
-            Applied Agile methodologies with two-week sprints to ensure smooth
-            development and adaptability.
-          </li>
-        </ul>
-        <a
-          className={styles.link}
-          href="https://lnkd.in/eXaTwwwi"
-          target="_blank"
-          rel="noopener noreferrer"
+      <div className={styles.card}>
+        <h3 className={styles.sectionTitle}>
+          Intern Project: Connecting-Kerry
+        </h3>
+        <p className={styles.techStack}>
+          💻 <strong>Tech Stack:</strong> React.js, Express.js, Node.js,
+          PostgreSQL, REST APIs
+        </p>
+        <p className={styles.description}>
+          Led a team of 5 to develop a{" "}
+          <strong>volunteer management platform</strong> that increased
+          community engagement. Implemented <strong>CI/CD pipelines</strong> and
+          secure Firebase (GCP) authentication, reducing development time by{" "}
+          <strong>30%</strong>.
+        </p>
+        <p className={styles.projectLink}>
+          <a
+            href="https://connectingkerry.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            👆 Live Project Link
+          </a>
+        </p>
+        {/* Swiper Image Carousel */}
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
+          spaceBetween={10}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          className={styles.carousel}
         >
-          View Live Project
-        </a>
-      </section>
+          {images.map((img, index) => (
+            <SwiperSlide key={index}>
+              <img
+                src={img}
+                alt={`Screenshot ${index + 1}`}
+                className={styles.image}
+                onClick={() => setSelectedImage(img)}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        {/* Lightbox Popup */}
+        {selectedImage && (
+          <div
+            className={styles.lightbox}
+            onClick={() => setSelectedImage(null)}
+          >
+            <img
+              src={selectedImage}
+              alt="Enlarged View"
+              className={styles.lightboxImage}
+            />
+          </div>
+        )}
+      </div>
+
+      <hr className={styles.divider} />
     </div>
   );
 };
