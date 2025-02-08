@@ -26,11 +26,14 @@ const Footer = () => {
               <Link to="/" className={styles.footerLink}>
                 About Me
               </Link>
-              <Link to="/skills" className={styles.footerLink}>
-                Skills
+              <Link to="/experience" className={styles.footerLink}>
+                Experience
               </Link>
               <Link to="/projects" className={styles.footerLink}>
                 Projects
+              </Link>
+              <Link to="/skills" className={styles.footerLink}>
+                Skills
               </Link>
               <Link to="/contact" className={styles.footerLink}>
                 Contact
@@ -39,20 +42,22 @@ const Footer = () => {
 
             {/* Social Icons */}
             <Box className={styles.footerIcons}>
-              <Link
-                to="https://www.linkedin.com/in/mun-li-pan-081002henry/"
+              <a
+                href="https://www.linkedin.com/in/henry-pan-mun-li/"
                 target="_blank"
                 rel="noopener noreferrer"
+                className={styles.iconLink}
               >
                 <LinkedInIcon className={styles.icon} />
-              </Link>
-              <Link
-                to="https://github.com/Henry-0810"
+              </a>
+              <a
+                href="https://github.com/Henry-0810"
                 target="_blank"
                 rel="noopener noreferrer"
+                className={styles.iconLink}
               >
                 <GitHubIcon className={styles.icon} />
-              </Link>
+              </a>
             </Box>
           </Toolbar>
         </AppBar>

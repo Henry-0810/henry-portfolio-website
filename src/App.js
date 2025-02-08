@@ -8,6 +8,7 @@ import Contact from "./Components/Contact";
 import Navbar from "./NavBar.js";
 import Footer from "./Footer.js";
 import theme from "./CssStuff/theme.js";
+import Experience from "./Components/Experience";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           >
             <Routes>
               <Route path="/" element={<About />} />
+              <Route path="/experience" element={<Experience />} />
               <Route path="/skills" element={<Skills />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/contact" element={<Contact />} />

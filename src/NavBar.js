@@ -77,10 +77,18 @@ const Navbar = () => {
           />
         </ListItemButton>
       </Link>
-      <Link to="/skills" style={{ textDecoration: "none" }}>
+      <Link to="/experience" style={{ textDecoration: "none" }}>
         <ListItemButton onClick={closeMenu}>
           <ListItemText
-            primary="Skills"
+            primary="Experience"
+            sx={{ color: "#EDEADE", fontFamily: "Raleway", fontSize: "18px" }}
+          />
+        </ListItemButton>
+      </Link>
+      <Link to="/projects" style={{ textDecoration: "none" }}>
+        <ListItemButton onClick={closeMenu}>
+          <ListItemText
+            primary="Projects"
             sx={{
               color: "#EDEADE",
               fontFamily: "Raleway",
@@ -89,10 +97,10 @@ const Navbar = () => {
           />
         </ListItemButton>
       </Link>
-      <Link to="/projects" style={{ textDecoration: "none" }}>
+      <Link to="/skills" style={{ textDecoration: "none" }}>
         <ListItemButton onClick={closeMenu}>
           <ListItemText
-            primary="Projects"
+            primary="Skills"
             sx={{
               color: "#EDEADE",
               fontFamily: "Raleway",
@@ -131,6 +139,9 @@ const Navbar = () => {
               >
                 <Link to="/" style={linkStyle}>
                   About Me
+                </Link>
+                <Link to={"/experience"} style={linkStyle}>
+                  Experience
                 </Link>
                 <Link to="/skills" style={linkStyle}>
                   Skills
