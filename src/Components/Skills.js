@@ -5,8 +5,8 @@ import styles from "../CssStuff/Skills.module.css";
 const Skills = () => {
   const skillsList = [
     {
-      name: "HTML",
-      icon: <img src="https://i.imgur.com/4PzraaT.png" alt="HTML" />,
+      name: "Python",
+      icon: <img src="https://i.imgur.com/4PzraaT.png" alt="Python" />,
     },
     {
       name: "CSS",
