@@ -1,4 +1,4 @@
-# [Henry's Portfolio Website](https://app.netlify.com/sites/henry0810-portfolio/deploys)                                            
+# [Henry's Portfolio Website](https://henry0810-portfolio.netlify.app/)                                            
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Henry%20-%230077B5?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/henry-pan-mun-li/)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/0ea315a3-fc5b-4404-bc56-29139a4e61a4/deploy-status)](https://app.netlify.com/sites/henry0810-portfolio/deploys)
 
