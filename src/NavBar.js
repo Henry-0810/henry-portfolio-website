@@ -71,7 +71,6 @@ const Navbar = () => {
             primary="About Me"
             sx={{
               color: "#EDEADE",
-              fontFamily: "Raleway",
               fontSize: "18px",
             }}
           />
@@ -81,7 +80,7 @@ const Navbar = () => {
         <ListItemButton onClick={closeMenu}>
           <ListItemText
             primary="Experience"
-            sx={{ color: "#EDEADE", fontFamily: "Raleway", fontSize: "18px" }}
+            sx={{ color: "#EDEADE", fontSize: "18px" }}
           />
         </ListItemButton>
       </Link>
@@ -91,7 +90,7 @@ const Navbar = () => {
             primary="Projects"
             sx={{
               color: "#EDEADE",
-              fontFamily: "Raleway",
+
               fontSize: "18px",
             }}
           />
@@ -103,7 +102,7 @@ const Navbar = () => {
             primary="Skills"
             sx={{
               color: "#EDEADE",
-              fontFamily: "Raleway",
+
               fontSize: "18px",
             }}
           />
@@ -115,7 +114,7 @@ const Navbar = () => {
             primary="Contact"
             sx={{
               color: "#EDEADE",
-              fontFamily: "Raleway",
+
               fontSize: "18px",
             }}
           />
@@ -178,7 +177,7 @@ const Navbar = () => {
             "& .MuiDrawer-paper": {
               backgroundColor: "#333", // Dark background for mobile menu
               color: "#EDEADE",
-              fontFamily: "Raleway",
+
               paddingTop: "20px",
               width: "250px", // Fixed width for the drawer
             },
