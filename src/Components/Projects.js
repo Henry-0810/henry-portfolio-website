@@ -1,200 +1,106 @@
-import React, { useState } from "react";
-import {
-  Typography,
-  ThemeProvider,
-  Card,
-  Container,
-  Link,
-  Button,
-} from "@mui/material";
-import theme from "../CssStuff/theme.js";
-import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
-import ArrowRightIcon from "@mui/icons-material/ArrowRight";
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { motion } from "framer-motion";
+import { Card, CardContent, Typography, Button } from "@mui/material";
+import { FaExternalLinkAlt } from "react-icons/fa";
+import "swiper/swiper-bundle.css";
 import styles from "../CssStuff/Projects.module.css";
 
 const projectsData = [
   {
-    title: "Accounting System",
-    images: [
-      {
-        src: "https://i.imgur.com/srnpvcc.jpg",
-        width: 700,
-        height: 350,
-      },
-      {
-        src: "https://i.imgur.com/GHkopiz.jpg",
-        width: 700,
-        height: 350,
-      },
-    ],
-    codeLink: "https://github.com/Henry-0810/Accounting-System",
+    title: "Project A",
+    date: "Jan 2025 - Present",
+    techStack: ["React", "Java", "Python"],
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    image: "https://via.placeholder.com/300",
+    liveLink: "https://example.com",
   },
   {
-    title: "NBA Tickets Retail System",
-    images: [
-      {
-        src: "https://i.imgur.com/iVzcq2T.jpg",
-        width: 600,
-        height: 350,
-      },
-      {
-        src: "https://i.imgur.com/nhxyHDu.jpg",
-        width: 600,
-        height: 350,
-      },
-    ],
-    codeLink: "https://github.com/Henry-0810/NBA-Tickets-Retail-System",
+    title: "Project B",
+    date: "Sep 2024 - Dec 2024",
+    techStack: ["React", "Java", "Python"],
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    image: "https://via.placeholder.com/300",
+    liveLink: "https://example.com",
   },
   {
-    title: "Tetris Game",
-    images: [
-      {
-        src: "https://i.imgur.com/n0pTWhI.jpg",
-        width: 400,
-        height: 400,
-      },
-      {
-        src: "https://i.imgur.com/vSe8MjM.jpg",
-        width: 400,
-        height: 280,
-      },
-    ],
-    codeLink: "https://github.com/Henry-0810/Tetris-Game",
+    title: "Project C",
+    date: "May 2024 - Aug 2024",
+    techStack: ["React", "Java", "Python"],
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    image: "https://via.placeholder.com/300",
+    liveLink: "https://example.com",
   },
 ];
 
 const Projects = () => {
-  const [currentPage, setCurrentPage] = useState(0);
-  const [cardOpacity, setCardOpacity] = useState(1); // Initialize opacity to 1 (fully visible)
-
-  const handlePrev = () => {
-    setCardOpacity(0); // Set opacity to 0 (invisible) when changing projects
-    setTimeout(() => {
-      setCurrentPage((prevPage) => Math.max(prevPage - 1, 0));
-      setCardOpacity(1); // Set opacity back to 1 (visible) after a short delay
-    }, 300); // Adjust the delay as needed for the desired transition speed
-  };
-
-  const handleNext = () => {
-    setCardOpacity(0);
-    setTimeout(() => {
-      setCurrentPage((prevPage) =>
-        Math.min(prevPage + 1, projectsData.length - 1)
-      );
-      setCardOpacity(1);
-    }, 300);
-  };
-
-  const project = projectsData[currentPage];
-
   return (
-    <div className="content">
-      <ThemeProvider theme={theme}>
-        <Container
-          className={styles.container}
-          disableGutters
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            marginTop: "5vh",
-            marginBottom: "15vh",
-          }}
-        >
-          <div style={{ display: "flex" }}>
-            <Button
-              variant="contained"
-              onClick={handlePrev}
-              disabled={currentPage === 0}
-              sx={{
-                height: "10vw",
-                borderRadius: "5%",
-              }}
+    <div className={styles.projectsContainer}>
+      <motion.div
+        className={styles.titleContainer}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
+        <Typography variant="h3" className={styles.pageTitle}>
+          My Projects
+        </Typography>
+        <Typography variant="body1" className={styles.pageSubtitle}>
+          Here are some of the projects I've worked on.
+        </Typography>
+      </motion.div>
+
+      <Swiper
+        spaceBetween={30}
+        slidesPerView={1}
+        loop={true}
+        pagination={{ clickable: true }}
+        navigation
+        className={styles.swiperContainer}
+      >
+        {projectsData.map((project, index) => (
+          <SwiperSlide key={index}>
+            <motion.div
+              className={styles.projectCard}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
             >
-              <ArrowLeftIcon fontSize="large" />
-            </Button>
-          </div>
-          <Card
-            className="card"
-            sx={{
-              marginX: "5vw",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              flexDirection: "column",
-              backgroundColor: "primary.main",
-              opacity: cardOpacity,
-              transition: "opacity 0.3s ease-in-out",
-              borderRadius: "30px",
-            }}
-          >
-            <div
-              className="content"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                margin: "3vh 3vw",
-              }}
-            >
-              <Typography
-                variant="h6"
-                className={styles.title}
-                sx={{ color: "#edeade", fontFamily: "Raleway" }}
-              >
-                {project.title}
-              </Typography>
-              <img
-                className={styles.image}
-                src={project.images[0].src}
-                alt={project.title}
-                width={project.images[0].width}
-                height={project.images[0].height}
-                style={{
-                  borderRadius: "15px",
-                  border: "2px solid #dfe3ee",
-                  marginBottom: "2vh",
-                }}
-              />
-              <img
-                className={styles.image}
-                src={project.images[1].src}
-                alt={project.title}
-                width={project.images[1].width}
-                height={project.images[1].height}
-                style={{ borderRadius: "15px", border: "2px solid #dfe3ee" }}
-              />
-              <Link
-                className={styles.link}
-                href={project.codeLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                sx={{
-                  color: "#edeade",
-                  fontFamily: "Raleway",
-                  fontSize: "1.5rem",
-                  marginTop: "2vh",
-                }}
-              >
-                See the code
-              </Link>
-            </div>
-          </Card>
-          <div style={{ display: "flex" }}>
-            <Button
-              variant="contained"
-              onClick={handleNext}
-              disabled={currentPage === projectsData.length - 1}
-              sx={{
-                height: "10vw",
-                borderRadius: "5%",
-              }}
-            >
-              <ArrowRightIcon fontSize="large" />
-            </Button>
-          </div>
-        </Container>
-      </ThemeProvider>
+              <Card className={styles.card}>
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className={styles.cardImage}
+                />
+                <CardContent>
+                  <div className={styles.header}>
+                    <Typography variant="h6">{project.title}</Typography>
+                    <Typography variant="body2" className={styles.date}>
+                      {project.date}
+                    </Typography>
+                  </div>
+                  <Typography variant="body1" className={styles.techStack}>
+                    <strong>Tech Stack:</strong> {project.techStack.join(", ")}
+                  </Typography>
+                  <Typography variant="body2" className={styles.description}>
+                    {project.description}
+                  </Typography>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    href={project.liveLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.liveLinkButton}
+                  >
+                    Live Demo <FaExternalLinkAlt />
+                  </Button>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 };

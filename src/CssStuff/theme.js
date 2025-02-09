@@ -30,7 +30,7 @@ const theme = createTheme({
     },
     body1: {
       primary: {
-        fontFamily: "Raleway",
+        // fontFamily: "Raleway",
         color: "#EDEADE",
         fontSize: "18px", // Reduced font size for better readability
       },
