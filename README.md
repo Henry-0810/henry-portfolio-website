@@ -13,7 +13,7 @@ Welcome to my personal portfolio website! This site showcases my skills, project
 ## Technology Stack
 - **Frontend:** React
 - **Styling:** TailwindCSS, CSS modules
-- **Animations:** Swiper, React-Icons
+- **Animations:** Swiper, React-Icons, Framer-motion
 - **Deployment:** Netlify
 
 ## How to Run Locally
