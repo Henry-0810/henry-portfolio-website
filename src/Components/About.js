@@ -27,45 +27,20 @@ const About = () => {
       <div className="content">
         <Container className={styles.aboutDiv}>
           <Grid container spacing={4} justifyContent="center">
-            {/* Right Column (Avatar on top for mobile view) */}
             <Grid
               item
               xs={12}
-              sm={4}
+              sm={8}
+              md={7}
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
+                alignItems: "flex-start",
+                justifyContent: "flex-start",
+                textAlign: "left",
               }}
             >
-              <Avatar
-                className={styles.avatar}
-                alt="profile picture"
-                src="https://imgur.com/0Gg0opC.jpg"
-                sx={{
-                  width: "100%",
-                  height: "auto",
-                  borderRadius: "50%",
-                  boxShadow: "0px 8px 16px rgba(0, 0, 0, 0.1)",
-                  transition: "transform 0.3s ease",
-                  cursor: "pointer",
-                  "&:hover": { transform: "scale(1.05)" },
-                }}
-                onClick={handleOpen} // Open modal on click
-              />
-            </Grid>
-
-            {/* Left Column (Text Content) */}
-            <Grid item xs={12} sm={7}>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  textAlign: "center",
-                }}
-              >
+              <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
                 <Typography
                   variant="h3"
                   color="textPrimary"
@@ -85,8 +60,9 @@ const About = () => {
                     fontSize: { xs: "1.5rem", sm: "2rem" },
                   }}
                 >
-                  Passionate software engineer with a deep love for creating
-                  innovative solutions through code.
+                  Upcoming software engineering graduate passionate about
+                  developing innovative and efficient solutions to complex
+                  problems through code.
                 </Typography>
 
                 {/* Contact Information */}
@@ -128,7 +104,7 @@ const About = () => {
                   <Button
                     variant="contained"
                     color="primary"
-                    href="/path-to-resume.pdf"
+                    href="/Henry_Pan_CV.pdf"
                     target="_blank"
                     download
                     sx={{
@@ -141,10 +117,40 @@ const About = () => {
                     }}
                   >
                     <DownloadIcon />
-                    Download Resume
+                    Download CV
                   </Button>
                 </Box>
               </Box>
+            </Grid>
+
+            {/* Right Column (Profile Picture) */}
+            <Grid
+              item
+              xs={12}
+              sm={4}
+              md={5} // Adjust layout for larger screens
+              sx={{
+                display: "flex",
+
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Avatar
+                className={styles.avatar}
+                alt="profile picture"
+                src="https://imgur.com/0Gg0opC.jpg"
+                sx={{
+                  width: "100%",
+                  height: "auto",
+                  borderRadius: "50%",
+                  boxShadow: "0px 8px 16px rgba(0, 0, 0, 0.1)",
+                  transition: "transform 0.3s ease",
+                  cursor: "pointer",
+                  "&:hover": { transform: "scale(1.05)" },
+                }}
+                onClick={handleOpen} // Open modal on click
+              />
             </Grid>
           </Grid>
         </Container>

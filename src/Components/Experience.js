@@ -34,7 +34,7 @@ const Experience = () => {
             internship.
           </li>
           <li>
-            ➡️ Applied Agile methodologies (<strong>Kanban</strong>) and
+            ➡️ Applied Agile methodologies (<strong>Jira Board</strong>) and
             collaborated with cross-functional teams to ensure on-time project
             delivery.
           </li>
