@@ -16,7 +16,6 @@ import theme from "./CssStuff/theme.js";
 import { Link } from "react-router-dom";
 
 const linkStyle = {
-  fontFamily: "Raleway",
   color: "#EDEADE",
   fontSize: "18px",
   marginRight: "30px",
