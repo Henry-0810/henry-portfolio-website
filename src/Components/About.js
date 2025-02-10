@@ -95,7 +95,10 @@ const About = () => {
                       sx={{ color: "#007BFF", marginRight: 1 }}
                       fontSize="inherit"
                     />
-                    <a href="mailto:henry.pan0810@gmail.com">
+                    <a
+                      href="mailto:henry.pan0810@gmail.com"
+                      style={{ color: "#ffcc00" }}
+                    >
                       henry.pan0810@gmail.com
                     </a>
                   </Typography>
