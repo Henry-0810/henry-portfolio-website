@@ -144,6 +144,7 @@ const About = () => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
+                order: { xs: -1, sm: 0 },
               }}
             >
               <motion.div
@@ -154,7 +155,7 @@ const About = () => {
                 <Avatar
                   className={styles.avatar}
                   alt="profile picture"
-                  src="https://imgur.com/0Gg0opC.jpg"
+                  src="./Avatar.jpg"
                   sx={{
                     width: "100%",
                     height: "auto",
@@ -193,7 +194,7 @@ const About = () => {
             <CloseIcon />
           </IconButton>
           <motion.img
-            src="https://imgur.com/0Gg0opC.jpg"
+            src="./Avatar.jpg"
             alt="Profile"
             style={{
               maxWidth: "100%",

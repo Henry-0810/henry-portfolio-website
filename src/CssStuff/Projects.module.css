@@ -17,10 +17,26 @@
     color: #EDEADE;
 }
 
+/* Responsive: Make pageTitle smaller on mobile */
+@media (max-width: 600px) {
+    .pageTitle {
+        font-size: 24px !important;
+        /* Adjusted for smaller screens */
+    }
+}
+
 .pageSubtitle {
     font-size: clamp(1rem, 2.5vw, 1.2rem);
     color: #b6b0b0;
     margin-top: 10px;
+}
+
+/* Responsive: Make pageSubtitle smaller on mobile */
+@media (max-width: 600px) {
+    .pageSubtitle {
+        font-size: 15px !important;
+        /* Adjusted for smaller screens */
+    }
 }
 
 .swiperContainer {
@@ -81,7 +97,7 @@
     }
 
     .projectTitle {
-        font-size: 22px;
+        font-size: 22px !important;
     }
     .date {
         font-size: 12px;

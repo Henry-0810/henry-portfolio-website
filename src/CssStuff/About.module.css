@@ -25,7 +25,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        
     }
 
     .avatar {
@@ -34,8 +33,15 @@
         margin-bottom: 20px;
     }
 
+    /* Ensure content is still centered and readable */
     .content {
         font-size: 14px;
         text-align: center;
+    }
+
+    /* Change the order of the items in mobile view */
+    .avatar {
+        order: -1 !important;
+        /* Moves the avatar above the content */
     }
 }
