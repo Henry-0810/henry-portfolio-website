@@ -34,6 +34,7 @@
     border-radius: 10px;
     padding: 10px;
     transition: background-color 0.3s ease;
+    overflow: hidden;
 }
 
 .iconContainer:hover {
@@ -43,8 +44,9 @@
 /* Adjust icon size */
 .icon {
     
-    max-width: 60px;
-    height: auto;
+    max-width: 70px;
+    max-height: 70px; /* Ensures uniform height */
+    object-fit: contain
 }
 
 /* Ensure text is visible based on theme */

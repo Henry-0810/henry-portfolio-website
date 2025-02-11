@@ -2,3 +2,15 @@
     font-family: "Raleway";
     font-size: 1.2rem;
 }
+
+@media (max-width: 600px) {
+    .formInput {
+        font-size: 1rem;
+        /* Smaller font size for mobile devices */
+    }
+
+    .securityCode{
+        font-size: 1rem;
+        font-family: "Roboto";
+    }
+}

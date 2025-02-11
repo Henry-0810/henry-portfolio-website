@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { motion } from "framer-motion";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -16,15 +17,32 @@ const Experience = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   return (
-    <div className={styles.container}>
-      <h2 className={styles.heading}>Software Engineer Intern</h2>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className={styles.container}
+    >
+      <motion.h2
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className={styles.heading}
+      >
+        Software Engineer Intern
+      </motion.h2>
       <p className={styles.company}>
         JRI-America (A Division of Sumitomo Mitsui Banking Corporation), Kerry,
         Ireland <br />
         <strong>January 2024 – August 2024</strong>
       </p>
 
-      <div className={styles.card}>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        className={styles.card}
+      >
         <h3 className={styles.sectionTitle}>Department Work</h3>
         <ul className={styles.list}>
           <li>
@@ -61,11 +79,16 @@ const Experience = () => {
             👆 LinkedIn Post
           </a>
         </p>
-      </div>
+      </motion.div>
 
       <hr className={styles.divider} />
 
-      <div className={styles.card}>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        className={styles.card}
+      >
         <h3 className={styles.sectionTitle}>
           Intern Project: Connecting-Kerry
         </h3>
@@ -89,7 +112,7 @@ const Experience = () => {
             👆 Live Project Link
           </a>
         </p>
-        {/* Swiper Image Carousel */}
+
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={10}
@@ -101,33 +124,37 @@ const Experience = () => {
         >
           {images.map((img, index) => (
             <SwiperSlide key={index}>
-              <img
+              <motion.img
                 src={img}
                 alt={`Screenshot ${index + 1}`}
                 className={styles.image}
                 onClick={() => setSelectedImage(img)}
+                whileHover={{ scale: 1.05 }}
               />
             </SwiperSlide>
           ))}
         </Swiper>
 
-        {/* Lightbox Popup */}
         {selectedImage && (
-          <div
+          <motion.div
             className={styles.lightbox}
             onClick={() => setSelectedImage(null)}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
           >
-            <img
+            <motion.img
               src={selectedImage}
               alt="Enlarged View"
               className={styles.lightboxImage}
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.8 }}
             />
-          </div>
+          </motion.div>
         )}
-      </div>
-
-      <hr className={styles.divider} />
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
