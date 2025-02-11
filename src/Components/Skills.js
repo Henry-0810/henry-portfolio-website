@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Grid, Typography } from "@mui/material";
-import { motion } from "framer-motion"; // Import Framer Motion
+import { motion } from "framer-motion";
 import styles from "../CssStuff/Skills.module.css";
+import { LinearProgress } from "@mui/material";
 
 const Skills = () => {
+  const [loading, setLoading] = useState(true);
+  const [loadedImages, setLoadedImages] = useState(0);
   const skillsList = [
     { name: "Java", icon: "./logos/Java_Logo.png" },
     { name: "Python", icon: "./logos/Python_Logo.png" },
@@ -25,6 +28,16 @@ const Skills = () => {
     { name: "Kubernetes", icon: "./logos/Kubernetes_Logo.png" },
   ];
 
+  const handleImageLoad = () => {
+    setLoadedImages((prev) => prev + 1);
+  };
+
+  useEffect(() => {
+    if (loadedImages === skillsList.length) {
+      setLoading(false);
+    }
+  }, [loadedImages]);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -32,6 +45,7 @@ const Skills = () => {
       transition={{ duration: 1 }}
       className="content"
     >
+      {loading && <LinearProgress />}
       <Container className={styles.container}>
         <Grid container spacing={3}>
           {skillsList.map((skill, index) => (
@@ -54,6 +68,8 @@ const Skills = () => {
                     src={skill.icon}
                     alt={skill.name}
                     className={styles.icon}
+                    loading="lazy"
+                    onLoad={handleImageLoad}
                   />
                 </div>
                 <Typography variant="subtitle1" className={styles.skillName}>
