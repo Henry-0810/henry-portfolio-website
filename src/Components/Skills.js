@@ -5,28 +5,33 @@ import styles from "../CssStuff/Skills.module.css";
 
 const Skills = () => {
   const skillsList = [
-    { name: "Java", icon: "https://imgur.com/BJlwi3P.png" },
-    { name: "Python", icon: "https://imgur.com/st2MRPx.png" },
-    { name: "JavaScript", icon: "https://i.imgur.com/kUUCtnD.png" },
-    { name: "C#", icon: "https://i.imgur.com/mjCMdQT.png" },
-    { name: "React.js", icon: "https://i.imgur.com/o41ScOa.png" },
-    { name: "Node.js", icon: "https://i.imgur.com/PmDHBDg.png" },
-    { name: "Spring Boot", icon: "https://imgur.com/IrfvDvY.png" },
-    { name: "Flask", icon: "https://imgur.com/vqvvH5m.png" },
-    { name: "PostgreSQL", icon: "https://imgur.com/LSbAsLF.png" },
-    { name: "MongoDB", icon: "https://i.imgur.com/3hSg8HL.png" },
-    { name: "Apache Kafka", icon: "https://imgur.com/d9gr4qp.png" },
-    { name: "AWS", icon: "https://imgur.com/sSyTa8Q.png" },
-    { name: "Jenkins", icon: "https://imgur.com/cvTLyvr.png" },
-    { name: "Data Analysis", icon: "https://imgur.com/3i5d5wr.png" },
-    { name: "Git", icon: "https://i.imgur.com/88t77ql.png" },
-    { name: "Linux", icon: "https://imgur.com/16k5oUJ.png" },
-    { name: "Docker", icon: "https://imgur.com/y8JB8DV.png" },
-    { name: "Kubernetes", icon: "https://imgur.com/ATcGVBP.png" },
+    { name: "Java", icon: "./logos/Java_Logo.png" },
+    { name: "Python", icon: "./logos/Python_Logo.png" },
+    { name: "JavaScript", icon: "./logos/JavaScript_Logo.png" },
+    { name: "C#", icon: "./logos/CSharp_Logo.png" },
+    { name: "React.js", icon: "./logos/ReactJs_Logo.png" },
+    { name: "Node.js", icon: "./logos/NodeJs_Logo.png" },
+    { name: "Spring Boot", icon: "./logos/SpringBoot_Logo.png" },
+    { name: "Flask", icon: "./logos/Flask_Logo.png" },
+    { name: "PostgreSQL", icon: "./logos/PostgreSQL_Logo.png" },
+    { name: "MongoDB", icon: "./logos/MongoDB_Logo.png" },
+    { name: "Apache Kafka", icon: "./logos/Kafka_Logo.png" },
+    { name: "AWS", icon: "./logos/AWS_Logo.png" },
+    { name: "Jenkins", icon: "./logos/Jenkins_Logo.png" },
+    { name: "Data Analysis", icon: "./logos/Jupyter_Logo.png" },
+    { name: "Git", icon: "./logos/Git_Logo.png" },
+    { name: "Linux", icon: "./logos/Linux_Logo.png" },
+    { name: "Docker", icon: "./logos/Docker_Logo.png" },
+    { name: "Kubernetes", icon: "./logos/Kubernetes_Logo.png" },
   ];
 
   return (
-    <div className="content">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      className="content"
+    >
       <Container className={styles.container}>
         <Grid container spacing={3}>
           {skillsList.map((skill, index) => (
@@ -39,28 +44,27 @@ const Skills = () => {
               key={index}
               className={styles.skillsDiv}
             >
-              {/* Framer Motion Effect */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
-                whileHover={{ scale: 1.1 }}
-                className={styles.iconContainer}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
               >
-                <img
-                  src={skill.icon}
-                  alt={skill.name}
-                  className={styles.icon}
-                />
+                <div className={styles.iconContainer}>
+                  <img
+                    src={skill.icon}
+                    alt={skill.name}
+                    className={styles.icon}
+                  />
+                </div>
+                <Typography variant="subtitle1" className={styles.skillName}>
+                  {skill.name}
+                </Typography>
               </motion.div>
-              <Typography variant="subtitle1" className={styles.skillName}>
-                {skill.name}
-              </Typography>
             </Grid>
           ))}
         </Grid>
       </Container>
-    </div>
+    </motion.div>
   );
 };
 

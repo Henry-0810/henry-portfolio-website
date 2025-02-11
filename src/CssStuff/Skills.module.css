@@ -30,16 +30,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.736);
+    background-color: rgba(255, 255, 255, 0.921);
     border-radius: 10px;
     padding: 10px;
     transition: background-color 0.3s ease;
     overflow: hidden;
 }
 
-.iconContainer:hover {
-    background-color: rgba(255, 255, 255, 0.921);
-}
 
 /* Adjust icon size */
 .icon {

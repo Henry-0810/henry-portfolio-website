@@ -8,9 +8,9 @@ import "swiper/css/pagination";
 import styles from "../CssStuff/Experience.module.css";
 
 const images = [
-  "https://i.imgur.com/Zv3XNSF.jpg",
-  "https://i.imgur.com/oWvrbsA.jpg",
-  "https://i.imgur.com/Mq9hDJA.jpg",
+  "./experience_images/InternProj1.jpg",
+  "./experience_images/InternProj2.png",
+  "./experience_images/InternProj3.jpg",
 ];
 
 const Experience = () => {
