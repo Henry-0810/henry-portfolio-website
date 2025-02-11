@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Grid, Typography } from "@mui/material";
+import { motion } from "framer-motion"; // Import Framer Motion
 import styles from "../CssStuff/Skills.module.css";
 
 const Skills = () => {
@@ -15,7 +16,7 @@ const Skills = () => {
     { name: "PostgreSQL", icon: "https://imgur.com/LSbAsLF.png" },
     { name: "MongoDB", icon: "https://i.imgur.com/3hSg8HL.png" },
     { name: "Apache Kafka", icon: "https://imgur.com/d9gr4qp.png" },
-    { name: "Amazon Web Services", icon: "https://imgur.com/sSyTa8Q.png" },
+    { name: "AWS", icon: "https://imgur.com/sSyTa8Q.png" },
     { name: "Jenkins", icon: "https://imgur.com/cvTLyvr.png" },
     { name: "Data Analysis", icon: "https://imgur.com/3i5d5wr.png" },
     { name: "Git", icon: "https://i.imgur.com/88t77ql.png" },
@@ -38,13 +39,20 @@ const Skills = () => {
               key={index}
               className={styles.skillsDiv}
             >
-              <div className={styles.iconContainer}>
+              {/* Framer Motion Effect */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                whileHover={{ scale: 1.1 }}
+                className={styles.iconContainer}
+              >
                 <img
                   src={skill.icon}
                   alt={skill.name}
                   className={styles.icon}
                 />
-              </div>
+              </motion.div>
               <Typography variant="subtitle1" className={styles.skillName}>
                 {skill.name}
               </Typography>

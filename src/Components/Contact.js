@@ -7,9 +7,11 @@ import {
   Grid,
   ThemeProvider,
 } from "@mui/material";
+import { motion } from "framer-motion";
 import theme from "../CssStuff/theme.js";
 import emailjs from "@emailjs/browser";
 import validator from "validator";
+import styles from "../CssStuff/Contact.module.css";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -18,7 +20,6 @@ const Contact = () => {
     message: "",
     securityCode: "",
   });
-
   const [validSecurityCode, setValidSecurityCode] = useState(false);
   const [randomSecurityCode, setRandomSecurityCode] = useState("");
   const [validEmail, setValidEmail] = useState("");
@@ -41,15 +42,8 @@ const Contact = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-
-    // Validate email as the user types
-    if (name === "email") {
-      validateEmail(value);
-    }
+    setFormData({ ...formData, [name]: value });
+    if (name === "email") validateEmail(value);
   };
 
   const validateEmail = (email) => {
@@ -70,252 +64,148 @@ const Contact = () => {
   };
 
   const handleSubmit = (e) => {
-    let contactInfo = {
-      user_name: formData.name,
-      user_email: formData.email,
-      message: formData.message,
-    };
-
     e.preventDefault();
-
     setLoading(true);
-
     setTimeout(() => {
       if (verificationComplete && validSecurityCode && validEmail === "") {
-        emailjs
-          .send(
-            "service_wd6z371",
-            "template_xjg60l3",
-            contactInfo,
-            "vsQMnVvW_zkEYfzjd"
-          )
-          .then(
-            (result) => {
-              console.log(result.text);
-              console.log("Email sent successfully!");
-            },
-            (error) => {
-              console.log(error.text);
-              console.log("Email failed to send.");
-            }
-          );
-
-        setFormData({
-          name: "",
-          email: "",
-          message: "",
-          securityCode: "",
-        });
+        emailjs.send(
+          "service_wd6z371",
+          "template_xjg60l3",
+          {
+            user_name: formData.name,
+            user_email: formData.email,
+            message: formData.message,
+          },
+          "vsQMnVvW_zkEYfzjd"
+        );
+        setFormData({ name: "", email: "", message: "", securityCode: "" });
         setValidSecurityCode(false);
-        setLoading(false);
-
-        setVerificationComplete(false); // Reset verification state
+        setVerificationComplete(false);
       } else {
         alert("Please verify the security code and email address.");
-        setLoading(false);
       }
+      setLoading(false);
     }, 2000);
   };
 
   return (
     <ThemeProvider theme={theme}>
       {loading && (
-        <Typography
-          variant="h6"
-          gutterBottom
-          sx={{
-            fontFamily: "Raleway",
-            fontWeight: "bold",
-            fontSize: "1.5rem",
-            color: "primary.main",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
         >
-          Sending message...
-        </Typography>
+          <Typography variant="h6" align="center" color="primary">
+            Sending message...
+          </Typography>
+        </motion.div>
       )}
       {!loading && (
-        <Container
-          sx={{
-            marginY: "4vh",
-            backgroundColor: "rgba(0, 0, 0, 0.6)",
-            borderRadius: "10px",
-            padding: "3vh",
-          }}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
         >
-          <Typography
-            variant="h4"
-            gutterBottom
-            color="textPrimary"
+          <Container
             sx={{
-              fontFamily: "Raleway",
-              fontWeight: "bold",
-              marginBottom: "3vh",
-              textAlign: "center",
-              fontSize: "2rem",
+              marginY: "4vh",
+              backgroundColor: "rgba(0, 0, 0, 0.6)",
+              borderRadius: "10px",
+              padding: "3vh",
             }}
           >
-            Contact Me
-          </Typography>
-          <form onSubmit={handleSubmit}>
-            <Grid container spacing={3}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Name"
-                  name="name"
-                  value={formData.name}
-                  color="primary"
-                  variant="filled"
-                  onChange={handleChange}
-                  required
-                  InputProps={{
-                    style: {
-                      color: "#EDEADE",
-                      borderRadius: "8px",
-                      boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                    },
-                  }}
-                  sx={{
-                    backgroundColor: "#2d2d2d",
-                    "& .MuiFilledInput-root": {
-                      borderRadius: "8px",
-                    },
-                  }}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Email"
-                  name="email"
-                  variant="filled"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  InputProps={{
-                    style: {
-                      color: "#EDEADE",
-                      borderRadius: "8px",
-                      boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                    },
-                  }}
-                  sx={{
-                    backgroundColor: "#2d2d2d",
-                    "& .MuiFilledInput-root": {
-                      borderRadius: "8px",
-                    },
-                  }}
-                  error={validEmail !== ""}
-                  helperText={validEmail}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  fullWidth
-                  label="Message"
-                  name="message"
-                  variant="filled"
-                  multiline
-                  rows={4}
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  InputProps={{
-                    style: {
-                      color: "#EDEADE",
-                      borderRadius: "8px",
-                      boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                    },
-                  }}
-                  sx={{
-                    backgroundColor: "#2d2d2d",
-                    "& .MuiFilledInput-root": {
-                      borderRadius: "8px",
-                    },
-                  }}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                {!verificationComplete ? (
-                  <>
-                    <Typography
-                      variant="h6"
-                      gutterBottom
-                      sx={{
-                        fontFamily: "Arial",
-                        fontSize: "1.5rem",
-                        color: "primary",
-                      }}
-                    >
-                      Enter Security Code: {randomSecurityCode}
-                    </Typography>
-                    <TextField
-                      fullWidth
-                      label="Enter Security Code"
-                      name="securityCode"
-                      variant="filled"
-                      value={formData.securityCode}
-                      onChange={handleChange}
-                      required
-                      helperText="All caps, no spaces"
-                      InputProps={{
-                        style: {
-                          color: "#EDEADE",
-                          borderRadius: "8px",
-                          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                        },
-                      }}
-                      sx={{
-                        backgroundColor: "#2d2d2d",
-                        "& .MuiFilledInput-root": {
-                          borderRadius: "8px",
-                        },
-                      }}
-                    />
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      onClick={handleVerify}
-                      sx={{
-                        marginTop: "1.5vh",
-                        borderRadius: "8px",
-                        fontWeight: "bold",
-                        transition: "all 0.3s ease",
-                        "&:hover": {
-                          backgroundColor: "#ffffff",
-                          color: "#000000",
-                        },
-                      }}
-                    >
-                      Verify Security Code
-                    </Button>
-                  </>
-                ) : (
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    type="submit"
+            <Typography variant="h4" align="center" gutterBottom>
+              Contact Me
+            </Typography>
+            <form onSubmit={handleSubmit}>
+              <Grid container spacing={3}>
+                <Grid item xs={12} sm={6}>
+                  <TextField
                     fullWidth
-                    sx={{
-                      borderRadius: "8px",
-                      fontWeight: "bold",
-                      transition: "all 0.3s ease",
-                      "&:hover": {
-                        backgroundColor: "#ffffff",
-                        color: "#000000",
-                      },
-                    }}
-                  >
-                    Submit
-                  </Button>
-                )}
+                    label="Name"
+                    name="name"
+                    variant="filled"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    fullWidth
+                    label="Email"
+                    name="email"
+                    variant="filled"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    error={validEmail !== ""}
+                    helperText={validEmail}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    fullWidth
+                    label="Message"
+                    name="message"
+                    variant="filled"
+                    multiline
+                    rows={4}
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  {!verificationComplete ? (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <Typography
+                        variant="h6"
+                        className={styles.securityCode}
+                        gutterBottom
+                      >
+                        Enter Security Code: {randomSecurityCode}
+                      </Typography>
+                      <TextField
+                        fullWidth
+                        label="Enter Security Code"
+                        name="securityCode"
+                        variant="filled"
+                        value={formData.securityCode}
+                        onChange={handleChange}
+                        required
+                      />
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={handleVerify}
+                        sx={{ marginTop: "1.5vh" }}
+                      >
+                        Verify Security Code
+                      </Button>
+                    </motion.div>
+                  ) : (
+                    <motion.div whileHover={{ scale: 1.05 }}>
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        type="submit"
+                        fullWidth
+                      >
+                        Submit
+                      </Button>
+                    </motion.div>
+                  )}
+                </Grid>
               </Grid>
-            </Grid>
-          </form>
-        </Container>
+            </form>
+          </Container>
+        </motion.div>
       )}
     </ThemeProvider>
   );

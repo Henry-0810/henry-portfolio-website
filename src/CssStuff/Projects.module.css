@@ -32,7 +32,7 @@
 /* Responsive: Make Swiper smaller on mobile */
 @media (max-width: 768px) {
     .swiperContainer {
-        max-width: 90%;
+        max-width: 100%;
     }
 }
 

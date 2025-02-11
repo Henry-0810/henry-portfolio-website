@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import {
   Avatar,
   Container,
@@ -17,14 +18,19 @@ import DownloadIcon from "@mui/icons-material/GetApp";
 import styles from "../CssStuff/About.module.css";
 
 const About = () => {
-  const [open, setOpen] = useState(false); // State to control modal
+  const [open, setOpen] = useState(false);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
     <>
-      <div className="content">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="content"
+      >
         <Container className={styles.aboutDiv}>
           <Grid container spacing={4} justifyContent="center">
             <Grid
@@ -40,126 +46,131 @@ const About = () => {
                 textAlign: "left",
               }}
             >
-              <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-                <Typography
-                  variant="h3"
-                  color="textPrimary"
-                  sx={{
-                    marginBottom: "20px",
-                    fontWeight: "bold",
-                    fontSize: { xs: "2.5rem", sm: "3.5rem" },
-                  }}
-                >
-                  Hello World! I'm Henry
-                </Typography>
-                <Typography
-                  variant="h4"
-                  color="textSecondary"
-                  sx={{
-                    marginBottom: "20px",
-                    fontSize: { xs: "1.5rem", sm: "2rem" },
-                  }}
-                >
-                  Upcoming software engineering graduate passionate about
-                  developing innovative and efficient solutions to complex
-                  problems through code.
-                </Typography>
-
-                {/* Contact Information */}
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
                 <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
                   <Typography
-                    variant="h5"
-                    color="textSecondary"
+                    variant="h3"
+                    color="textPrimary"
                     sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      fontSize: { xs: "1rem", sm: "1.25rem" },
+                      marginBottom: "20px",
+                      fontWeight: "bold",
+                      fontSize: { xs: "2.5rem", sm: "3.5rem" },
                     }}
                   >
-                    <PhoneIcon
-                      sx={{ color: "#007BFF", marginRight: 1 }}
-                      fontSize="inherit"
-                    />
-                    +(353) 857317597
+                    Hello World! I'm Henry
                   </Typography>
                   <Typography
-                    variant="h5"
+                    variant="h4"
                     color="textSecondary"
                     sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      fontSize: { xs: "1rem", sm: "1.25rem" },
+                      marginBottom: "20px",
+                      fontSize: { xs: "1.5rem", sm: "2rem" },
                     }}
                   >
-                    <EmailIcon
-                      sx={{ color: "#007BFF", marginRight: 1 }}
-                      fontSize="inherit"
-                    />
-                    <a
-                      href="mailto:henry.pan0810@gmail.com"
-                      style={{ color: "#ffcc00" }}
-                    >
-                      henry.pan0810@gmail.com
-                    </a>
+                    Upcoming software engineering graduate passionate about
+                    developing innovative and efficient solutions to complex
+                    problems through code.
                   </Typography>
-
-                  {/* Download Resume Button */}
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    href="/Henry_Pan_CV.pdf"
-                    target="_blank"
-                    download
-                    sx={{
-                      color: "white",
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 1,
-                      textTransform: "none",
-                      marginTop: "20px",
-                    }}
+                  <Box
+                    sx={{ display: "flex", flexDirection: "column", gap: 2 }}
                   >
-                    <DownloadIcon />
-                    Download CV
-                  </Button>
+                    <Typography
+                      variant="h5"
+                      color="textSecondary"
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        fontSize: { xs: "1rem", sm: "1.25rem" },
+                      }}
+                    >
+                      <PhoneIcon
+                        sx={{ color: "#007BFF", marginRight: 1 }}
+                        fontSize="inherit"
+                      />
+                      +(353) 857317597
+                    </Typography>
+                    <Typography
+                      variant="h5"
+                      color="textSecondary"
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        fontSize: { xs: "1rem", sm: "1.25rem" },
+                      }}
+                    >
+                      <EmailIcon
+                        sx={{ color: "#007BFF", marginRight: 1 }}
+                        fontSize="inherit"
+                      />
+                      <a
+                        href="mailto:henry.pan0810@gmail.com"
+                        style={{ color: "#ffcc00" }}
+                      >
+                        henry.pan0810@gmail.com
+                      </a>
+                    </Typography>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      href="/Henry_Pan_CV.pdf"
+                      target="_blank"
+                      download
+                      sx={{
+                        color: "white",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 1,
+                        textTransform: "none",
+                        marginTop: "20px",
+                      }}
+                    >
+                      <DownloadIcon />
+                      Download CV
+                    </Button>
+                  </Box>
                 </Box>
-              </Box>
+              </motion.div>
             </Grid>
-
-            {/* Right Column (Profile Picture) */}
             <Grid
               item
               xs={12}
               sm={4}
-              md={5} // Adjust layout for larger screens
+              md={5}
               sx={{
                 display: "flex",
-
                 alignItems: "center",
                 justifyContent: "center",
               }}
             >
-              <Avatar
-                className={styles.avatar}
-                alt="profile picture"
-                src="https://imgur.com/0Gg0opC.jpg"
-                sx={{
-                  width: "100%",
-                  height: "auto",
-                  borderRadius: "50%",
-                  boxShadow: "0px 8px 16px rgba(0, 0, 0, 0.1)",
-                  transition: "transform 0.3s ease",
-                  cursor: "pointer",
-                  "&:hover": { transform: "scale(1.05)" },
-                }}
-                onClick={handleOpen} // Open modal on click
-              />
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Avatar
+                  className={styles.avatar}
+                  alt="profile picture"
+                  src="https://imgur.com/0Gg0opC.jpg"
+                  sx={{
+                    width: "100%",
+                    height: "auto",
+                    borderRadius: "50%",
+                    boxShadow: "0px 8px 16px rgba(0, 0, 0, 0.1)",
+                    cursor: "pointer",
+                  }}
+                  onClick={handleOpen}
+                />
+              </motion.div>
             </Grid>
           </Grid>
         </Container>
-      </div>
+      </motion.div>
 
-      {/* Modal for Profile Picture */}
+      {/* Animated Modal */}
       <Dialog open={open} onClose={handleClose} maxWidth="md">
         <DialogContent
           sx={{
@@ -169,6 +180,11 @@ const About = () => {
             alignItems: "center",
             padding: "20px",
           }}
+          component={motion.div}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.8 }}
+          transition={{ duration: 0.4 }}
         >
           <IconButton
             onClick={handleClose}
@@ -176,7 +192,7 @@ const About = () => {
           >
             <CloseIcon />
           </IconButton>
-          <img
+          <motion.img
             src="https://imgur.com/0Gg0opC.jpg"
             alt="Profile"
             style={{
@@ -184,6 +200,7 @@ const About = () => {
               maxHeight: "80vh",
               borderRadius: "10px",
             }}
+            whileHover={{ scale: 1.05 }}
           />
         </DialogContent>
       </Dialog>
